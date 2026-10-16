@@ -289,6 +289,13 @@ class BusinessAnswer(models.Model):
         related_name="business_answers",
     )
 
+    # Stores multiple selected options for MULTIPLE questions
+    selected_options = models.ManyToManyField(
+        "QuestionOption",
+        blank=True,
+        related_name="multiple_business_answers"
+    )
+
     text_value = models.TextField(
         null=True,
         blank=True,
@@ -406,3 +413,232 @@ class RuleCondition(models.Model):
             left_side = self.source
 
         return f"{left_side} {self.operator} {self.expected_value}"
+
+#-------------------------------------------#
+#              SHOUQ: New CODEEE            #
+#-------------------------------------------#  
+class Authority(models.Model):
+    # Unique code for each government authority
+    code = models.CharField(max_length=50, unique=True)
+
+    # Government authority name in English
+    name_en = models.CharField(max_length=200)
+
+    # Government authority name in Arabic
+    name_ar = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name_en
+
+class GovernmentService(models.Model):
+    # Unique identifier for each government service
+    code = models.CharField(
+        max_length=50,
+        unique=True
+    )
+
+    # Service names
+    name_ar = models.CharField(max_length=255)
+    name_en = models.CharField(max_length=255)
+
+    # Service descriptions
+    description_ar = models.TextField(blank=True)
+    description_en = models.TextField(blank=True)
+
+    # Government authority responsible for the service
+    authority = models.ForeignKey(
+        Authority,
+        on_delete=models.PROTECT,
+        related_name="services"
+    )
+
+    # Official government service URL
+    official_url = models.URLField(
+        blank=True,
+        null=True
+    )
+
+    # Whether the service is active in the system
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.code} - {self.name_en}"
+
+    
+class ServiceRule(models.Model):
+
+    # Government service associated with this rule
+    service = models.ForeignKey(
+        GovernmentService,
+        on_delete=models.CASCADE,
+        related_name="rules"
+    )
+
+    # Logic used to evaluate conditions
+    LOGIC_CHOICES = [
+        ("ALL", "All conditions must match"),
+        ("ANY", "At least one condition must match"),
+    ]
+
+    logic = models.CharField(
+        max_length=10,
+        choices=LOGIC_CHOICES,
+        default="ALL"
+    )
+
+    # Enable or disable this rule
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"Rule {self.pk} - {self.service.code}"
+
+    
+
+class ServiceCondition(models.Model):
+
+    SOURCE_CHOICES = [
+        ("ANSWER", "Business Answer"),
+        ("ACTIVITY", "Business Activity"),
+        ("INDUSTRY", "Business Industry"),
+        ("LOCATION", "Business Location"),
+    ]
+
+    OPERATOR_CHOICES = [
+        ("EQUALS", "Equals"),
+        ("NOT_EQUALS", "Does not equal"),
+        ("CONTAINS", "Contains"),
+        ("GREATER_THAN", "Greater than"),
+        ("LESS_THAN", "Less than"),
+    ]
+
+    # Rule that contains this condition
+    rule = models.ForeignKey(
+        ServiceRule,
+        on_delete=models.CASCADE,
+        related_name="conditions"
+    )
+
+    # Source of the value being evaluated
+    source = models.CharField(
+        max_length=20,
+        choices=SOURCE_CHOICES
+    )
+
+    # Used when source is ANSWER
+    question = models.ForeignKey(
+        Question,
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+        related_name="service_conditions"
+    )
+
+    # Used for location fields
+    field_name = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True
+    )
+
+    # Comparison operation
+    operator = models.CharField(
+        max_length=30,
+        choices=OPERATOR_CHOICES
+    )
+
+    # Expected value for comparison
+    expected_value = models.CharField(
+        max_length=200
+    )
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+
+        super().clean()
+
+        if self.source == "ANSWER":
+            if not self.question_id:
+                raise ValidationError({
+                    "question": "Select a question for ANSWER conditions."
+                })
+
+            if self.field_name:
+                raise ValidationError({
+                    "field_name": "Leave this empty for ANSWER conditions."
+                })
+
+        else:
+            if self.question_id:
+                raise ValidationError({
+                    "question": "Question is only allowed for ANSWER conditions."
+                })
+
+            if self.source == "LOCATION":
+                allowed_fields = [
+                    "city_name_en",
+                    "region_name_en",
+                    "municipality_code",
+                ]
+
+                if self.field_name not in allowed_fields:
+                    raise ValidationError({
+                        "field_name": "Select a supported location field."
+                    })
+
+            elif self.field_name:
+                raise ValidationError({
+                    "field_name": "Leave this empty for this source."
+                })
+
+    def __str__(self):
+        return (
+            f"{self.source} "
+            f"{self.operator} "
+            f"{self.expected_value}"
+        )
+
+class ServiceDependency(models.Model):
+
+    # The service that requires another service first
+    service = models.ForeignKey(
+        GovernmentService,
+        on_delete=models.CASCADE,
+        related_name="dependencies"
+    )
+
+    # The service that must be completed beforehand
+    prerequisite = models.ForeignKey(
+        GovernmentService,
+        on_delete=models.PROTECT,
+        related_name="required_by"
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["service", "prerequisite"],
+                name="unique_service_dependency"
+            )
+        ]
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+
+        super().clean()
+
+        if (
+            self.service_id
+            and self.prerequisite_id
+            and self.service_id == self.prerequisite_id
+        ):
+            raise ValidationError(
+                "A service cannot depend on itself."
+            )
+
+    def __str__(self):
+        return (
+            f"{self.service.code} requires "
+            f"{self.prerequisite.code}"
+        )
+
+  
