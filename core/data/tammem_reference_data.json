@@ -1,0 +1,5280 @@
+[
+  {
+    "model": "core.industry",
+    "pk": 1,
+    "fields": {
+      "code": "FOOD_BEVERAGE",
+      "name_ar": "خدمات الأغذية والمشروبات",
+      "name_en": "Food and Beverage Services",
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 1,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_A",
+      "name_ar": "مقهى عادي ومتخصص",
+      "name_en": "Standard & Specialty Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 2,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_B",
+      "name_ar": "مقهى يقدم التبغ والشيشة",
+      "name_en": "Tobacco & Shisha Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 3,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_K",
+      "name_ar": "مقهى كشك وخدمة السيارات",
+      "name_en": "Kiosk & Drive-Thru Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 4,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_C",
+      "name_ar": "مقهى سحابي للتوصيل فقط",
+      "name_en": "Cloud & Delivery-Only Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 1,
+    "fields": {
+      "code": "TEST_Q001",
+      "text_ar": "هل يوجد موظفون في نشاطك التجاري؟",
+      "text_en": "Does your business have employees?",
+      "question_type": "BOOLEAN",
+      "input_type": null,
+      "required_mode": null,
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 1,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 2,
+    "fields": {
+      "code": "Q001",
+      "text_ar": "من مؤسس المنشأة؟",
+      "text_en": "Who is establishing the business?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 1,
+      "scope": "GENERAL",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 3,
+    "fields": {
+      "code": "Q002",
+      "text_ar": "هل بلغت 18 عاماً أو أكثر؟",
+      "text_en": "Are you 18 years old or older?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 2,
+      "scope": "GENERAL",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 4,
+    "fields": {
+      "code": "Q003",
+      "text_ar": "هل تعمل حالياً في جهة حكومية سعودية؟",
+      "text_en": "Are you currently a Saudi government employee?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 3,
+      "scope": "GENERAL",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 5,
+    "fields": {
+      "code": "Q004",
+      "text_ar": "ما جنسيتك؟",
+      "text_en": "What is your nationality/country?",
+      "question_type": "TEXT",
+      "input_type": "COUNTRY_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 4,
+      "scope": "GENERAL",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 6,
+    "fields": {
+      "code": "Q005",
+      "text_ar": "ما وضعك الحالي في المملكة العربية السعودية؟",
+      "text_en": "What is your current Saudi status?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 5,
+      "scope": "GENERAL",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 7,
+    "fields": {
+      "code": "Q006",
+      "text_ar": "هل تمتلك ترخيص الاستثمار الأجنبي اللازم لهذا النشاط التجاري؟",
+      "text_en": "Do you already have the required foreign investment registration/authorization for this business?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 6,
+      "scope": "GENERAL",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 8,
+    "fields": {
+      "code": "Q007",
+      "text_ar": "هل يتم تأسيس المنشأة من قِبل شركة أو كيان (سعودي أو أجنبي) قائم؟",
+      "text_en": "Is the business being established by an existing Saudi or foreign company/entity?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 7,
+      "scope": "GENERAL",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 9,
+    "fields": {
+      "code": "Q008",
+      "text_ar": "ما نوع النشاط التجاري الذي تود تأسيسه؟",
+      "text_en": "What type of business are you establishing?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 8,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 10,
+    "fields": {
+      "code": "Q009",
+      "text_ar": "ما الشكل القانوني للشركة التي ترغب في تأسيسها؟",
+      "text_en": "What company/legal form do you want to establish?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 9,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 11,
+    "fields": {
+      "code": "Q010",
+      "text_ar": "هل تُعد المنشأة فرعاً لشركة قائمة؟",
+      "text_en": "Is this a branch of an existing company?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 10,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 12,
+    "fields": {
+      "code": "Q011",
+      "text_ar": "أين تم تسجيل الشركة أو الكيان الأم؟",
+      "text_en": "Where is the parent company/entity registered?",
+      "question_type": "TEXT",
+      "input_type": "COUNTRY_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 11,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 13,
+    "fields": {
+      "code": "Q012",
+      "text_ar": "كم عدد مالكي المنشأة أو الشركاء فيها؟",
+      "text_en": "How many owners/partners will the business have?",
+      "question_type": "NUMBER",
+      "input_type": "NUMBER",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 12,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 14,
+    "fields": {
+      "code": "Q013",
+      "text_ar": "هل ستتعدد جهات أو أفراد الملكية؟",
+      "text_en": "Will ownership include more than one person/entity?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 13,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 15,
+    "fields": {
+      "code": "Q014",
+      "text_ar": "من هم مالكو المنشأة؟",
+      "text_en": "Who will own the business?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 14,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 16,
+    "fields": {
+      "code": "Q015",
+      "text_ar": "ما نسبة ملكية كل مالك في المنشأة؟",
+      "text_en": "What percentage of the business will each owner hold?",
+      "question_type": "TEXT",
+      "input_type": "OWNER_PERCENTAGES",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 15,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 17,
+    "fields": {
+      "code": "Q016",
+      "text_ar": "هل سيكون أي من المالكين فردًا أجنبيًا أو كيانًا أجنبيًا؟",
+      "text_en": "Will any owner be a foreign individual or foreign entity?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 16,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 18,
+    "fields": {
+      "code": "Q017",
+      "text_ar": "هل سيكون أي من المالكين جهة حكومية أو جهة مرتبطة بالحكومة؟",
+      "text_en": "Will any owner be a government entity or government-related entity?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 17,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 19,
+    "fields": {
+      "code": "Q018",
+      "text_ar": "هل ستعمل المنشأة بصفتها جهة غير ربحية، أم مؤسسة خيرية، أم تعاونية، أم كياناً قانونياً آخر؟",
+      "text_en": "Will the business operate as a non-profit, charity, cooperative, or another special legal entity?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 18,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 20,
+    "fields": {
+      "code": "Q019",
+      "text_ar": "ما النشاط التجاري الرئيسي للمنشأة؟",
+      "text_en": "What is the main business activity?",
+      "question_type": "TEXT",
+      "input_type": "ACTIVITY_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 19,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 21,
+    "fields": {
+      "code": "Q020",
+      "text_ar": "هل ستزاول المنشأة أكثر من نشاط واحد؟",
+      "text_en": "Will the business perform more than one activity?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 20,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 22,
+    "fields": {
+      "code": "Q021",
+      "text_ar": "ما الأنشطة التجارية الإضافية التي تعتزم مزاولتها؟",
+      "text_en": "What other business activities will you perform?",
+      "question_type": "TEXT",
+      "input_type": "MULTI_ACTIVITY_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 21,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 23,
+    "fields": {
+      "code": "Q022",
+      "text_ar": "هل النشاط المختار خاضع لتنظيم خاص أو يصنف كنشاط مهني؟",
+      "text_en": "Is the selected activity a regulated/professional activity?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "NO",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 22,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 24,
+    "fields": {
+      "code": "Q023",
+      "text_ar": "هل يتطلب النشاط مؤهلاً أو ترخيصاً مهنياً للمالك أو المدير؟",
+      "text_en": "Does the activity require a professional qualification or professional license for the owner/manager?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 23,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 25,
+    "fields": {
+      "code": "Q024",
+      "text_ar": "ما المجال المهني أو المهنة التي تمارسها المنشأة؟",
+      "text_en": "Which professional field or profession does the business provide?",
+      "question_type": "TEXT",
+      "input_type": "PROFESSION_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 24,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 26,
+    "fields": {
+      "code": "Q025",
+      "text_ar": "هل تحمل بالفعل الترخيص أو المؤهل المهني المطلوب؟",
+      "text_en": "Do you already hold the required professional license/qualification?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 25,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 27,
+    "fields": {
+      "code": "Q026",
+      "text_ar": "ما طبيعة ما ستقدمه المنشأة؟",
+      "text_en": "What will the business provide?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 26,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 28,
+    "fields": {
+      "code": "Q027",
+      "text_ar": "هل ستبيع منتجات مباشرة للعملاء؟",
+      "text_en": "Will you sell products directly to customers?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 27,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 29,
+    "fields": {
+      "code": "Q028",
+      "text_ar": "هل ستقدم خدمات مباشرة للعملاء؟",
+      "text_en": "Will you provide services directly to customers?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 28,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 30,
+    "fields": {
+      "code": "Q029",
+      "text_ar": "هل سيستهلك العملاء المنتج أو الخدمة في مقر المنشأة أم يستخدمونهما فيه؟",
+      "text_en": "Will customers consume or use the product/service at your premises?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 29,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 31,
+    "fields": {
+      "code": "Q030",
+      "text_ar": "كيف سيصل العملاء إلى منشأتك؟",
+      "text_en": "How will customers access your business?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 30,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 32,
+    "fields": {
+      "code": "Q031",
+      "text_ar": "هل ستبيع منتجاتك أو تستقبل الطلبات عبر الإنترنت؟",
+      "text_en": "Will you sell or accept orders online?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 31,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 33,
+    "fields": {
+      "code": "Q032",
+      "text_ar": "ما هي منصاتك للبيع عبر الإنترنت؟",
+      "text_en": "Where will you sell online?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 32,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 34,
+    "fields": {
+      "code": "Q033",
+      "text_ar": "هل سيكون للمنشأة موقع أو متجر إلكتروني خاص بها؟",
+      "text_en": "Will the business have its own website or online store?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 33,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 35,
+    "fields": {
+      "code": "Q034",
+      "text_ar": "هل ستطلق المنشأة تطبيقاً خاصاً بها للهواتف الذكية؟",
+      "text_en": "Will the business have its own mobile application?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 34,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 36,
+    "fields": {
+      "code": "Q035",
+      "text_ar": "هل سيتيح نظام الدفع للعملاء التسديد إلكترونياً؟",
+      "text_en": "Will customers pay online through electronic payment methods?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 35,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 37,
+    "fields": {
+      "code": "Q036",
+      "text_ar": "أين ستمارس المنشأة نشاطها؟",
+      "text_en": "Where will the business operate?",
+      "question_type": "TEXT",
+      "input_type": "LOCATION_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 36,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 38,
+    "fields": {
+      "code": "Q037",
+      "text_ar": "هل اخترت مقراً للمنشأة بالفعل؟",
+      "text_en": "Do you already have a business location?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 37,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 39,
+    "fields": {
+      "code": "Q038",
+      "text_ar": "ما طبيعة الموقع الذي ستعتمد عليه؟",
+      "text_en": "What type of location will you use?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 38,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 40,
+    "fields": {
+      "code": "Q039",
+      "text_ar": "ما طبيعة علاقتك بالعقار (مالك أم مستأجر)؟",
+      "text_en": "What is your relationship to the property?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 39,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 41,
+    "fields": {
+      "code": "Q040",
+      "text_ar": "هل سيتردد العملاء على الموقع فعلياً؟",
+      "text_en": "Do customers physically visit the location?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 40,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 42,
+    "fields": {
+      "code": "Q041",
+      "text_ar": "هل ستزاول المنشأة نشاطها في أكثر من موقع؟",
+      "text_en": "Will the business operate from more than one physical location?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 41,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 43,
+    "fields": {
+      "code": "Q042",
+      "text_ar": "ما عدد المواقع التي ستزاول المنشأة نشاطها فيها؟",
+      "text_en": "How many physical locations will the business operate?",
+      "question_type": "NUMBER",
+      "input_type": "NUMBER",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 42,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 44,
+    "fields": {
+      "code": "Q043",
+      "text_ar": "هل ستُدار المنشأة من مقر سكني؟",
+      "text_en": "Is the business operated from a private home/residential property?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 43,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 45,
+    "fields": {
+      "code": "Q044",
+      "text_ar": "هل ستستخدم المنشأة لوحات إعلانية في مقرها؟",
+      "text_en": "Will the business use signage at the premises?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 44,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 46,
+    "fields": {
+      "code": "Q045",
+      "text_ar": "هل سيحتوي مقر المنشأة على مناطق مخصصة لاستقبال العملاء؟",
+      "text_en": "Will the premises include areas accessible to customers?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 45,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 47,
+    "fields": {
+      "code": "Q046",
+      "text_ar": "هل تتوفر لديك وثيقة ملكية أو عقد إيجار ساري المفعول؟",
+      "text_en": "Do you already have a lease, deed, or other valid property document?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 46,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 48,
+    "fields": {
+      "code": "Q047",
+      "text_ar": "هل ستوظف المنشأة عمالة؟",
+      "text_en": "Will the business employ workers?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 47,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 49,
+    "fields": {
+      "code": "Q048",
+      "text_ar": "ما العدد المتوقع للموظفين في بداية التشغيل؟",
+      "text_en": "How many employees do you expect to have initially?",
+      "question_type": "NUMBER",
+      "input_type": "NUMBER",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 48,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 50,
+    "fields": {
+      "code": "Q049",
+      "text_ar": "هل ستوظف عمالة سعودية؟",
+      "text_en": "Will you employ Saudi workers?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 49,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 51,
+    "fields": {
+      "code": "Q050",
+      "text_ar": "هل ستوظف عمالة غير سعودية؟",
+      "text_en": "Will you employ non-Saudi workers?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 50,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 52,
+    "fields": {
+      "code": "Q051",
+      "text_ar": "هل يزاول أي من الموظفين مهنة خاضعة للتنظيم أو مهنة مهنية؟",
+      "text_en": "Will any employee perform a regulated/professional occupation?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 51,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 53,
+    "fields": {
+      "code": "Q052",
+      "text_ar": "هل سيباشر الموظفون عملهم من مقر المنشأة؟",
+      "text_en": "Will employees work at the business premises?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 52,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 54,
+    "fields": {
+      "code": "Q053",
+      "text_ar": "هل ستقوم المنشأة بإعداد، أو تداول، أو تصنيع، أو تخزين، أو بيع الأغذية أو المشروبات؟",
+      "text_en": "Will the business prepare, handle, manufacture, store, or sell food or beverages?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 53,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 55,
+    "fields": {
+      "code": "Q054",
+      "text_ar": "هل سيتم إعداد الأغذية أو المشروبات داخل مقر المنشأة؟",
+      "text_en": "Will food or beverages be prepared on the premises?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 54,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 56,
+    "fields": {
+      "code": "Q055",
+      "text_ar": "هل سيتم طهي الأغذية أو تسخينها في مقر المنشأة؟",
+      "text_en": "Will food be cooked or heated on the premises?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 55,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 57,
+    "fields": {
+      "code": "Q056",
+      "text_ar": "هل سيتناول العملاء الأغذية أو المشروبات داخل مقر المنشأة؟",
+      "text_en": "Will customers consume food or beverages on the premises?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 56,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 58,
+    "fields": {
+      "code": "Q057",
+      "text_ar": "هل ستتولى المنشأة تعبئة المنتجات الغذائية أو تصنيعها؟",
+      "text_en": "Will the business package or manufacture food products?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 57,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 59,
+    "fields": {
+      "code": "Q058",
+      "text_ar": "هل ستستورد المنشأة أغذية أو مكونات غذائية؟",
+      "text_en": "Will the business import food or food ingredients?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 58,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 60,
+    "fields": {
+      "code": "Q059",
+      "text_ar": "هل ستقوم المنشأة بتوصيل الأغذية أو المشروبات للعملاء؟",
+      "text_en": "Will the business deliver food or beverages to customers?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 59,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 61,
+    "fields": {
+      "code": "Q060",
+      "text_ar": "هل ستقوم المنشأة بتصنيع المنتجات، أو تحويلها، أو تجميعها، أو معالجتها؟",
+      "text_en": "Will the business manufacture, transform, assemble, or process products?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 60,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 62,
+    "fields": {
+      "code": "Q061",
+      "text_ar": "ما نوع المنتجات التي ستصنعها المنشأة؟",
+      "text_en": "What type of products will you manufacture?",
+      "question_type": "TEXT",
+      "input_type": "ACTIVITY_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 61,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 63,
+    "fields": {
+      "code": "Q062",
+      "text_ar": "أين سيتم تنفيذ عمليات التصنيع؟",
+      "text_en": "Where will manufacturing take place?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 62,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 64,
+    "fields": {
+      "code": "Q063",
+      "text_ar": "هل ستعتمد عملية التصنيع على آلات أو معدات صناعية؟",
+      "text_en": "Will the manufacturing process use machinery or industrial equipment?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 63,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 65,
+    "fields": {
+      "code": "Q064",
+      "text_ar": "هل ستنتج المنشأة نفايات أو انبعاثات صناعية؟",
+      "text_en": "Will the business generate industrial waste or emissions?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 64,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 66,
+    "fields": {
+      "code": "Q065",
+      "text_ar": "هل ستستخدم المنشأة مواد خطرة، أو كيميائية، أو خاضعة للرقابة؟",
+      "text_en": "Will the business use hazardous, chemical, or controlled materials?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 65,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 67,
+    "fields": {
+      "code": "Q066",
+      "text_ar": "هل ستستورد المنشأة سلعاً، أو منتجات، أو معدات، أو مواد إلى المملكة العربية السعودية؟",
+      "text_en": "Will the business import goods, products, equipment, or materials into Saudi Arabia?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 66,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 68,
+    "fields": {
+      "code": "Q067",
+      "text_ar": "ما هي المواد التي ستستوردها؟",
+      "text_en": "What will you import?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 67,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 69,
+    "fields": {
+      "code": "Q068",
+      "text_ar": "هل ستصدر المنشأة سلعاً أو منتجات من المملكة العربية السعودية؟",
+      "text_en": "Will the business export goods or products from Saudi Arabia?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 68,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 70,
+    "fields": {
+      "code": "Q069",
+      "text_ar": "هل ستقدم المنشأة خدمات لعملاء خارج المملكة العربية السعودية؟",
+      "text_en": "Will the business provide services to customers outside Saudi Arabia?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 69,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 71,
+    "fields": {
+      "code": "Q070",
+      "text_ar": "هل ستقدم المنشأة خدمات التوصيل أو النقل؟",
+      "text_en": "Will the business offer delivery or transportation services?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 70,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 72,
+    "fields": {
+      "code": "Q071",
+      "text_ar": "من سيتولى تنفيذ خدمات التوصيل؟",
+      "text_en": "Who will perform deliveries?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 71,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 73,
+    "fields": {
+      "code": "Q072",
+      "text_ar": "هل ستمتلك أو تشغّل مركبات لأغراض النشاط التجاري؟",
+      "text_en": "Will the business own or operate commercial vehicles for business activities?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 72,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 74,
+    "fields": {
+      "code": "Q073",
+      "text_ar": "ما رأس المال الأولي المتوقع للمنشأة؟",
+      "text_en": "What is the expected initial business capital?",
+      "question_type": "DECIMAL",
+      "input_type": "CURRENCY",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 73,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 75,
+    "fields": {
+      "code": "Q074",
+      "text_ar": "ما الإيرادات السنوية المتوقعة في عامها الأول؟",
+      "text_en": "What is the expected annual revenue during the first year?",
+      "question_type": "SINGLE",
+      "input_type": "CURRENCY_RANGE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 74,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 76,
+    "fields": {
+      "code": "Q075",
+      "text_ar": "هل ستبيع المنشأة سلعاً أو خدمات خاضعة للضريبة؟",
+      "text_en": "Will the business sell taxable goods or services?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "DERIVED_CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 75,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 77,
+    "fields": {
+      "code": "Q076",
+      "text_ar": "هل ستتلقى مدفوعات من عملاء داخل المملكة العربية السعودية؟",
+      "text_en": "Will the business receive payments from customers in Saudi Arabia?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 76,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 78,
+    "fields": {
+      "code": "Q077",
+      "text_ar": "هل لديك اسم تجاري مفضل؟",
+      "text_en": "Do you already have a preferred trade/business name?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 77,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 79,
+    "fields": {
+      "code": "Q078",
+      "text_ar": "وما هو؟",
+      "text_en": "What is your preferred trade/business name?",
+      "question_type": "TEXT",
+      "input_type": "TEXT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 78,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 80,
+    "fields": {
+      "code": "Q079",
+      "text_ar": "هل ترغب في استخدام الاسم نفسه لعلامة تجارية قائمة، أم ستعمل المنشأة تحت اسم تجاري مختلف عن اسمها القانوني؟",
+      "text_en": "Do you want to use the same name as an existing registered trademark/brand?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 79,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 81,
+    "fields": {
+      "code": "Q080",
+      "text_ar": "هل ترغب في استخدام الاسم نفسه لعلامة تجارية قائمة، أم ستعمل المنشأة تحت اسم تجاري مختلف عن اسمها القانوني؟",
+      "text_en": "Will the business operate under a brand name different from the legal entity name?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 80,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 82,
+    "fields": {
+      "code": "Q081",
+      "text_ar": "من سيدير المنشأة؟",
+      "text_en": "Who will manage the business?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 81,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 83,
+    "fields": {
+      "code": "Q082",
+      "text_ar": "هل سيكون المدير شخصاً مختلفاً عن المالك أو الشركاء؟",
+      "text_en": "Will the manager be different from the owner/partners?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 82,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 84,
+    "fields": {
+      "code": "Q083",
+      "text_ar": "هل تم تحديده بالفعل؟",
+      "text_en": "Is the manager already identified?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 83,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 85,
+    "fields": {
+      "code": "Q084",
+      "text_ar": "هل ستقدم المنشأة منتجاً رقمياً، أو برمجيات، أو منصة إلكترونية؟",
+      "text_en": "Will the business provide a digital product, software, platform, or online service?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 84,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 86,
+    "fields": {
+      "code": "Q085",
+      "text_ar": "هل سيتمكن العملاء من إنشاء حسابات فيها؟",
+      "text_en": "Will customers create accounts or profiles on your platform?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 85,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 87,
+    "fields": {
+      "code": "Q086",
+      "text_ar": "هل ستعالج المنصة طلبات العملاء أو حجوزاتهم أو معاملاتهم؟",
+      "text_en": "Will the platform process customer orders, bookings, or transactions?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 86,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 88,
+    "fields": {
+      "code": "Q087",
+      "text_ar": "هل ستعمل المنشأة في مجال الرعاية الصحية أو الخدمات الطبية أو الصيدلانية أو الخدمات ذات الصلة بالصحة؟",
+      "text_en": "Will the business operate in healthcare, medical, pharmaceutical, or health-related services?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "NO",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 87,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 89,
+    "fields": {
+      "code": "Q088",
+      "text_ar": "هل ستعمل المنشأة في مجال التعليم أو التدريب أو رعاية الأطفال؟",
+      "text_en": "Will the business operate in education, training, or childcare?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "NO",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 88,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 90,
+    "fields": {
+      "code": "Q089",
+      "text_ar": "هل ستعمل المنشأة في مجال السياحة أو الضيافة أو الإقامة أو خدمات السفر؟",
+      "text_en": "Will the business operate in tourism, hospitality, accommodation, or travel services?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "NO",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 89,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 91,
+    "fields": {
+      "code": "Q090",
+      "text_ar": "هل ستعمل المنشأة في مجال الخدمات المالية أو التأمين أو المدفوعات أو الإقراض أو الاستثمار؟",
+      "text_en": "Will the business operate in financial, insurance, payment, lending, or investment services?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "NO",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 90,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 92,
+    "fields": {
+      "code": "Q091",
+      "text_ar": "هل تعتزم المنشأة بيع أو تداول أو تخزين أو توزيع منتجات تتطلب موافقات تنظيمية خاصة؟",
+      "text_en": "Will the business sell, handle, store, or distribute products that require special regulatory approval?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 91,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 93,
+    "fields": {
+      "code": "Q092",
+      "text_ar": "هل ستزاول المنشأة أعمالها في منطقة اقتصادية خاصة أو ضمن اختصاص قضائي آخر؟",
+      "text_en": "Will the business operate in a special economic zone or other special jurisdiction?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 92,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 94,
+    "fields": {
+      "code": "Q093",
+      "text_ar": "في حال كان الجواب نعم، يرجى تحديد المنطقة أو الاختصاص القضائي.",
+      "text_en": "If applicable, which special zone/jurisdiction will you operate in?",
+      "question_type": "SINGLE",
+      "input_type": "SINGLE_CHOICE",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 93,
+      "scope": "ACTIVITY",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 95,
+    "fields": {
+      "code": "Q094",
+      "text_ar": "هل يندرج نشاطك تحت تحويل أو إعادة هيكلة أو نقل أو توسيع لنشاط تجاري قائم، بدلاً من تأسيس نشاط جديد؟",
+      "text_en": "Are you converting, restructuring, transferring, or expanding an existing business rather than starting a completely new one?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 94,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 96,
+    "fields": {
+      "code": "Q095",
+      "text_ar": "ما طبيعة التغيير الذي تجريه؟",
+      "text_en": "What type of change are you making?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 95,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 97,
+    "fields": {
+      "code": "Q096",
+      "text_ar": "هل تمتلك حالياً سجلاً تجارياً سارياً للمنشأة أو الكيان؟",
+      "text_en": "Do you already have an active commercial registration for the business/entity?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 96,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 98,
+    "fields": {
+      "code": "Q097",
+      "text_ar": "هل ترغب في أن يتولى «تمم» متابعة تواريخ انتهاء أو تجديد متطلبات منشأتك بعد التأسيس؟",
+      "text_en": "Do you want Tammem to monitor expiry/renewal dates for your business requirements after establishment?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 97,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 99,
+    "fields": {
+      "code": "Q098",
+      "text_ar": "ما هي تواريخ الانتهاء التي تود متابعتها؟",
+      "text_en": "Which types of expiry dates do you want to track?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 98,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 100,
+    "fields": {
+      "code": "Q099",
+      "text_ar": "هل ترغب في تلقي إشعارات بالتحديثات التنظيمية ذات الصلة؟",
+      "text_en": "Do you want notifications about relevant regulatory updates?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "YES",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": true,
+      "is_active": true,
+      "display_order": 99,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 101,
+    "fields": {
+      "code": "Q100",
+      "text_ar": "ما هي مجالات الأعمال التي تود أن تشملها التحديثات التنظيمية؟",
+      "text_en": "Which business areas should regulatory updates focus on?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 100,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 102,
+    "fields": {
+      "code": "Q101",
+      "text_ar": "هل لديك أي استفسارات أو غموض بشأن تفاصيل نشاطك التجاري؟",
+      "text_en": "Are you unsure about any of your business details?",
+      "question_type": "BOOLEAN",
+      "input_type": "BOOLEAN",
+      "required_mode": "NO",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 101,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.question",
+    "pk": 103,
+    "fields": {
+      "code": "Q102",
+      "text_ar": "ما هي المعلومات التي تحتاج إلى توضيح إضافي بشأنها؟",
+      "text_en": "Which information are you unsure about?",
+      "question_type": "MULTIPLE",
+      "input_type": "MULTI_SELECT",
+      "required_mode": "CONDITIONAL",
+      "help_text_ar": null,
+      "help_text_en": null,
+      "is_required": false,
+      "is_active": true,
+      "display_order": 102,
+      "scope": "PROFILE",
+      "activities": []
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 1,
+    "fields": {
+      "question": 2,
+      "code": "EXCEL_001",
+      "label_ar": "فرد سعودي",
+      "label_en": "Saudi individual",
+      "value": "Saudi individual",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 2,
+    "fields": {
+      "question": 2,
+      "code": "EXCEL_002",
+      "label_ar": "فرد من دول مجلس التعاون الخليجي",
+      "label_en": "GCC individual",
+      "value": "GCC individual",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 3,
+    "fields": {
+      "question": 2,
+      "code": "EXCEL_003",
+      "label_ar": "فرد أجنبي",
+      "label_en": "Foreign individual",
+      "value": "Foreign individual",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 4,
+    "fields": {
+      "question": 2,
+      "code": "EXCEL_004",
+      "label_ar": "شركة أو جهة سعودية",
+      "label_en": "Saudi company/entity",
+      "value": "Saudi company/entity",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 5,
+    "fields": {
+      "question": 2,
+      "code": "EXCEL_005",
+      "label_ar": "شركة أو جهة أجنبية",
+      "label_en": "Foreign company/entity",
+      "value": "Foreign company/entity",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 6,
+    "fields": {
+      "question": 2,
+      "code": "EXCEL_006",
+      "label_ar": "جهة أخرى مؤهلة",
+      "label_en": "Other eligible entity",
+      "value": "Other eligible entity",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 7,
+    "fields": {
+      "question": 6,
+      "code": "EXCEL_001",
+      "label_ar": "مقيم",
+      "label_en": "Resident",
+      "value": "Resident",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 8,
+    "fields": {
+      "question": 6,
+      "code": "EXCEL_002",
+      "label_ar": "حامل الإقامة المميزة",
+      "label_en": "Premium Residency holder",
+      "value": "Premium Residency holder",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 9,
+    "fields": {
+      "question": 6,
+      "code": "EXCEL_003",
+      "label_ar": "خارج المملكة العربية السعودية",
+      "label_en": "Outside Saudi Arabia",
+      "value": "Outside Saudi Arabia",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 10,
+    "fields": {
+      "question": 6,
+      "code": "EXCEL_004",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 11,
+    "fields": {
+      "question": 9,
+      "code": "EXCEL_001",
+      "label_ar": "مؤسسة فردية",
+      "label_en": "Sole establishment",
+      "value": "Sole establishment",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 12,
+    "fields": {
+      "question": 9,
+      "code": "EXCEL_002",
+      "label_ar": "شركة",
+      "label_en": "Company",
+      "value": "Company",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 13,
+    "fields": {
+      "question": 9,
+      "code": "EXCEL_003",
+      "label_ar": "فرع لشركة قائمة",
+      "label_en": "Branch of an existing company",
+      "value": "Branch of an existing company",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 14,
+    "fields": {
+      "question": 9,
+      "code": "EXCEL_004",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 15,
+    "fields": {
+      "question": 15,
+      "code": "EXCEL_001",
+      "label_ar": "فرد سعودي",
+      "label_en": "Saudi individual",
+      "value": "Saudi individual",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 16,
+    "fields": {
+      "question": 15,
+      "code": "EXCEL_002",
+      "label_ar": "فرد من دول مجلس التعاون الخليجي",
+      "label_en": "GCC individual",
+      "value": "GCC individual",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 17,
+    "fields": {
+      "question": 15,
+      "code": "EXCEL_003",
+      "label_ar": "فرد أجنبي",
+      "label_en": "Foreign individual",
+      "value": "Foreign individual",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 18,
+    "fields": {
+      "question": 15,
+      "code": "EXCEL_004",
+      "label_ar": "شركة أو جهة سعودية",
+      "label_en": "Saudi company/entity",
+      "value": "Saudi company/entity",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 19,
+    "fields": {
+      "question": 15,
+      "code": "EXCEL_005",
+      "label_ar": "شركة أو جهة أجنبية",
+      "label_en": "Foreign company/entity",
+      "value": "Foreign company/entity",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 20,
+    "fields": {
+      "question": 15,
+      "code": "EXCEL_006",
+      "label_ar": "جهة أخرى مؤهلة",
+      "label_en": "Other eligible entity",
+      "value": "Other eligible entity",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 21,
+    "fields": {
+      "question": 19,
+      "code": "EXCEL_001",
+      "label_ar": "لا",
+      "label_en": "No",
+      "value": "No",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 22,
+    "fields": {
+      "question": 19,
+      "code": "EXCEL_002",
+      "label_ar": "جهة غير ربحية",
+      "label_en": "Non-profit",
+      "value": "Non-profit",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 23,
+    "fields": {
+      "question": 19,
+      "code": "EXCEL_003",
+      "label_ar": "جمعية خيرية",
+      "label_en": "Charity",
+      "value": "Charity",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 24,
+    "fields": {
+      "question": 19,
+      "code": "EXCEL_004",
+      "label_ar": "جمعية تعاونية",
+      "label_en": "Cooperative",
+      "value": "Cooperative",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 25,
+    "fields": {
+      "question": 19,
+      "code": "EXCEL_005",
+      "label_ar": "جهة ذات طبيعة خاصة أخرى",
+      "label_en": "Other special entity",
+      "value": "Other special entity",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 26,
+    "fields": {
+      "question": 27,
+      "code": "EXCEL_001",
+      "label_ar": "منتجات مادية",
+      "label_en": "Physical products",
+      "value": "Physical products",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 27,
+    "fields": {
+      "question": 27,
+      "code": "EXCEL_002",
+      "label_ar": "منتجات رقمية",
+      "label_en": "Digital products",
+      "value": "Digital products",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 28,
+    "fields": {
+      "question": 27,
+      "code": "EXCEL_003",
+      "label_ar": "خدمات",
+      "label_en": "Services",
+      "value": "Services",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 29,
+    "fields": {
+      "question": 27,
+      "code": "EXCEL_004",
+      "label_ar": "أطعمة ومشروبات",
+      "label_en": "Food/beverages",
+      "value": "Food/beverages",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 30,
+    "fields": {
+      "question": 27,
+      "code": "EXCEL_005",
+      "label_ar": "منتجات مصنّعة",
+      "label_en": "Manufactured products",
+      "value": "Manufactured products",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 31,
+    "fields": {
+      "question": 27,
+      "code": "EXCEL_006",
+      "label_ar": "خدمات مهنية",
+      "label_en": "Professional services",
+      "value": "Professional services",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 32,
+    "fields": {
+      "question": 27,
+      "code": "EXCEL_007",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 7,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 33,
+    "fields": {
+      "question": 31,
+      "code": "EXCEL_001",
+      "label_ar": "موقع فعلي",
+      "label_en": "Physical location",
+      "value": "Physical location",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 34,
+    "fields": {
+      "question": 31,
+      "code": "EXCEL_002",
+      "label_ar": "عبر الإنترنت",
+      "label_en": "Online",
+      "value": "Online",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 35,
+    "fields": {
+      "question": 31,
+      "code": "EXCEL_003",
+      "label_ar": "متنقل أو مرتبط بالموقع",
+      "label_en": "Mobile/location-based",
+      "value": "Mobile/location-based",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 36,
+    "fields": {
+      "question": 31,
+      "code": "EXCEL_004",
+      "label_ar": "في مقر العميل",
+      "label_en": "Customer premises",
+      "value": "Customer premises",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 37,
+    "fields": {
+      "question": 31,
+      "code": "EXCEL_005",
+      "label_ar": "من المنزل",
+      "label_en": "Home-based",
+      "value": "Home-based",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 38,
+    "fields": {
+      "question": 31,
+      "code": "EXCEL_006",
+      "label_ar": "مواقع متعددة",
+      "label_en": "Multiple locations",
+      "value": "Multiple locations",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 39,
+    "fields": {
+      "question": 33,
+      "code": "EXCEL_001",
+      "label_ar": "موقع إلكتروني خاص",
+      "label_en": "Own website",
+      "value": "Own website",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 40,
+    "fields": {
+      "question": 33,
+      "code": "EXCEL_002",
+      "label_ar": "تطبيق جوال",
+      "label_en": "Mobile application",
+      "value": "Mobile application",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 41,
+    "fields": {
+      "question": 33,
+      "code": "EXCEL_003",
+      "label_ar": "وسائل التواصل الاجتماعي",
+      "label_en": "Social media",
+      "value": "Social media",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 42,
+    "fields": {
+      "question": 33,
+      "code": "EXCEL_004",
+      "label_ar": "سوق إلكتروني",
+      "label_en": "Online marketplace",
+      "value": "Online marketplace",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 43,
+    "fields": {
+      "question": 33,
+      "code": "EXCEL_005",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 44,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_001",
+      "label_ar": "محل أو متجر",
+      "label_en": "Shop/store",
+      "value": "Shop/store",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 45,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_002",
+      "label_ar": "مكتب",
+      "label_en": "Office",
+      "value": "Office",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 46,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_003",
+      "label_ar": "مطعم أو مقهى",
+      "label_en": "Restaurant/cafe",
+      "value": "Restaurant/cafe",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 47,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_004",
+      "label_ar": "مستودع",
+      "label_en": "Warehouse",
+      "value": "Warehouse",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 48,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_005",
+      "label_ar": "مصنع",
+      "label_en": "Factory",
+      "value": "Factory",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 49,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_006",
+      "label_ar": "منزل",
+      "label_en": "Home",
+      "value": "Home",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 50,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_007",
+      "label_ar": "عيادة أو مقر مهني",
+      "label_en": "Clinic/professional premises",
+      "value": "Clinic/professional premises",
+      "display_order": 7,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 51,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_008",
+      "label_ar": "وحدة متنقلة",
+      "label_en": "Mobile unit",
+      "value": "Mobile unit",
+      "display_order": 8,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 52,
+    "fields": {
+      "question": 39,
+      "code": "EXCEL_009",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 9,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 53,
+    "fields": {
+      "question": 40,
+      "code": "EXCEL_001",
+      "label_ar": "المالك",
+      "label_en": "Owner",
+      "value": "Owner",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 54,
+    "fields": {
+      "question": 40,
+      "code": "EXCEL_002",
+      "label_ar": "مستأجر أو بعقد إيجار",
+      "label_en": "Tenant/leased",
+      "value": "Tenant/leased",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 55,
+    "fields": {
+      "question": 40,
+      "code": "EXCEL_003",
+      "label_ar": "عقد استثمار أو عقد آخر",
+      "label_en": "Investment/other contract",
+      "value": "Investment/other contract",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 56,
+    "fields": {
+      "question": 40,
+      "code": "EXCEL_004",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 57,
+    "fields": {
+      "question": 63,
+      "code": "EXCEL_001",
+      "label_ar": "مصنع مملوك",
+      "label_en": "Own factory",
+      "value": "Own factory",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 58,
+    "fields": {
+      "question": 63,
+      "code": "EXCEL_002",
+      "label_ar": "مصنع مستأجر",
+      "label_en": "Leased factory",
+      "value": "Leased factory",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 59,
+    "fields": {
+      "question": 63,
+      "code": "EXCEL_003",
+      "label_ar": "منشأة صناعية",
+      "label_en": "Industrial facility",
+      "value": "Industrial facility",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 60,
+    "fields": {
+      "question": 63,
+      "code": "EXCEL_004",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 61,
+    "fields": {
+      "question": 68,
+      "code": "EXCEL_001",
+      "label_ar": "منتجات نهائية",
+      "label_en": "Finished products",
+      "value": "Finished products",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 62,
+    "fields": {
+      "question": 68,
+      "code": "EXCEL_002",
+      "label_ar": "مواد خام",
+      "label_en": "Raw materials",
+      "value": "Raw materials",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 63,
+    "fields": {
+      "question": 68,
+      "code": "EXCEL_003",
+      "label_ar": "مواد غذائية",
+      "label_en": "Food",
+      "value": "Food",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 64,
+    "fields": {
+      "question": 68,
+      "code": "EXCEL_004",
+      "label_ar": "معدات وآلات",
+      "label_en": "Equipment/machinery",
+      "value": "Equipment/machinery",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 65,
+    "fields": {
+      "question": 68,
+      "code": "EXCEL_005",
+      "label_ar": "مواد كيميائية أو مواد أخرى",
+      "label_en": "Chemicals/materials",
+      "value": "Chemicals/materials",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 66,
+    "fields": {
+      "question": 68,
+      "code": "EXCEL_006",
+      "label_ar": "منتجات طبية",
+      "label_en": "Medical products",
+      "value": "Medical products",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 67,
+    "fields": {
+      "question": 68,
+      "code": "EXCEL_007",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 7,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 68,
+    "fields": {
+      "question": 72,
+      "code": "EXCEL_001",
+      "label_ar": "موظفو المنشأة",
+      "label_en": "Business employees",
+      "value": "Business employees",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 69,
+    "fields": {
+      "question": 72,
+      "code": "EXCEL_002",
+      "label_ar": "مركبات مملوكة للمنشأة",
+      "label_en": "Business-owned vehicles",
+      "value": "Business-owned vehicles",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 70,
+    "fields": {
+      "question": 72,
+      "code": "EXCEL_003",
+      "label_ar": "شركة توصيل خارجية",
+      "label_en": "Third-party delivery company",
+      "value": "Third-party delivery company",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 71,
+    "fields": {
+      "question": 72,
+      "code": "EXCEL_004",
+      "label_ar": "سائقون مستقلون",
+      "label_en": "Independent drivers",
+      "value": "Independent drivers",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 72,
+    "fields": {
+      "question": 75,
+      "code": "EXCEL_001",
+      "label_ar": "أقل من الحد المحدد",
+      "label_en": "Below threshold",
+      "value": "Below threshold",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 73,
+    "fields": {
+      "question": 75,
+      "code": "EXCEL_002",
+      "label_ar": "بين الحدود المحددة",
+      "label_en": "Between thresholds",
+      "value": "Between thresholds",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 74,
+    "fields": {
+      "question": 75,
+      "code": "EXCEL_003",
+      "label_ar": "أعلى من الحد المحدد",
+      "label_en": "Above threshold",
+      "value": "Above threshold",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 75,
+    "fields": {
+      "question": 75,
+      "code": "EXCEL_004",
+      "label_ar": "غير متأكد",
+      "label_en": "Not sure",
+      "value": "Not sure",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 76,
+    "fields": {
+      "question": 82,
+      "code": "EXCEL_001",
+      "label_ar": "المالك",
+      "label_en": "Owner",
+      "value": "Owner",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 77,
+    "fields": {
+      "question": 82,
+      "code": "EXCEL_002",
+      "label_ar": "شريك",
+      "label_en": "Partner",
+      "value": "Partner",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 78,
+    "fields": {
+      "question": 82,
+      "code": "EXCEL_003",
+      "label_ar": "مدير معيّن",
+      "label_en": "Appointed manager",
+      "value": "Appointed manager",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 79,
+    "fields": {
+      "question": 82,
+      "code": "EXCEL_004",
+      "label_ar": "مجلس إدارة أو جهة إدارية",
+      "label_en": "Board/management body",
+      "value": "Board/management body",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 80,
+    "fields": {
+      "question": 96,
+      "code": "EXCEL_001",
+      "label_ar": "إضافة نشاط",
+      "label_en": "Add activity",
+      "value": "Add activity",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 81,
+    "fields": {
+      "question": 96,
+      "code": "EXCEL_002",
+      "label_ar": "تغيير الشكل القانوني",
+      "label_en": "Change legal structure",
+      "value": "Change legal structure",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 82,
+    "fields": {
+      "question": 96,
+      "code": "EXCEL_003",
+      "label_ar": "تغيير الموقع",
+      "label_en": "Change location",
+      "value": "Change location",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 83,
+    "fields": {
+      "question": 96,
+      "code": "EXCEL_004",
+      "label_ar": "افتتاح فرع",
+      "label_en": "Open branch",
+      "value": "Open branch",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 84,
+    "fields": {
+      "question": 96,
+      "code": "EXCEL_005",
+      "label_ar": "تغيير الملكية",
+      "label_en": "Change ownership",
+      "value": "Change ownership",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 85,
+    "fields": {
+      "question": 96,
+      "code": "EXCEL_006",
+      "label_ar": "توسيع العمليات",
+      "label_en": "Expand operations",
+      "value": "Expand operations",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 86,
+    "fields": {
+      "question": 96,
+      "code": "EXCEL_007",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 7,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 87,
+    "fields": {
+      "question": 99,
+      "code": "EXCEL_001",
+      "label_ar": "التراخيص",
+      "label_en": "Licenses",
+      "value": "Licenses",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 88,
+    "fields": {
+      "question": 99,
+      "code": "EXCEL_002",
+      "label_ar": "السجل التجاري",
+      "label_en": "Commercial registration",
+      "value": "Commercial registration",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 89,
+    "fields": {
+      "question": 99,
+      "code": "EXCEL_003",
+      "label_ar": "المتطلبات البلدية",
+      "label_en": "Municipal-related items",
+      "value": "Municipal-related items",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 90,
+    "fields": {
+      "question": 99,
+      "code": "EXCEL_004",
+      "label_ar": "التراخيص المهنية",
+      "label_en": "Professional licenses",
+      "value": "Professional licenses",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 91,
+    "fields": {
+      "question": 99,
+      "code": "EXCEL_005",
+      "label_ar": "التصاريح",
+      "label_en": "Permits",
+      "value": "Permits",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 92,
+    "fields": {
+      "question": 99,
+      "code": "EXCEL_006",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 93,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_001",
+      "label_ar": "النشاط الرئيسي",
+      "label_en": "Main activity",
+      "value": "Main activity",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 94,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_002",
+      "label_ar": "أنشطة إضافية",
+      "label_en": "Additional activities",
+      "value": "Additional activities",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 95,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_003",
+      "label_ar": "الموقع",
+      "label_en": "Location",
+      "value": "Location",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 96,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_004",
+      "label_ar": "التوظيف",
+      "label_en": "Employment",
+      "value": "Employment",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 97,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_005",
+      "label_ar": "الضرائب",
+      "label_en": "Tax",
+      "value": "Tax",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 98,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_006",
+      "label_ar": "مواد غذائية",
+      "label_en": "Food",
+      "value": "Food",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 99,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_007",
+      "label_ar": "التصنيع",
+      "label_en": "Manufacturing",
+      "value": "Manufacturing",
+      "display_order": 7,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 100,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_008",
+      "label_ar": "الاستيراد والتصدير",
+      "label_en": "Import/export",
+      "value": "Import/export",
+      "display_order": 8,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 101,
+    "fields": {
+      "question": 101,
+      "code": "EXCEL_009",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 9,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 102,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_001",
+      "label_ar": "النشاط التجاري",
+      "label_en": "Business activity",
+      "value": "Business activity",
+      "display_order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 103,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_002",
+      "label_ar": "الشكل القانوني",
+      "label_en": "Legal structure",
+      "value": "Legal structure",
+      "display_order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 104,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_003",
+      "label_ar": "متطلبات الموقع",
+      "label_en": "Location requirements",
+      "value": "Location requirements",
+      "display_order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 105,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_004",
+      "label_ar": "التراخيص",
+      "label_en": "Licenses",
+      "value": "Licenses",
+      "display_order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 106,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_005",
+      "label_ar": "الضرائب وضريبة القيمة المضافة",
+      "label_en": "Tax/VAT",
+      "value": "Tax/VAT",
+      "display_order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 107,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_006",
+      "label_ar": "الموظفون",
+      "label_en": "Employees",
+      "value": "Employees",
+      "display_order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 108,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_007",
+      "label_ar": "الاستثمار الأجنبي",
+      "label_en": "Foreign investment",
+      "value": "Foreign investment",
+      "display_order": 7,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.questionoption",
+    "pk": 109,
+    "fields": {
+      "question": 103,
+      "code": "EXCEL_008",
+      "label_ar": "أخرى",
+      "label_en": "Other",
+      "value": "Other",
+      "display_order": 8,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 1,
+    "fields": {
+      "code": "MOMAH_BALADY",
+      "name_en": "Ministry of Municipalities and Housing (MOMAH) - Balady",
+      "name_ar": "وزارة البلديات والإسكان - بلدي"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 2,
+    "fields": {
+      "code": "MOC",
+      "name_en": "Ministry of Commerce",
+      "name_ar": "وزارة التجارة"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 3,
+    "fields": {
+      "code": "SBC",
+      "name_en": "Saudi Business Center - Business platform",
+      "name_ar": "المركز السعودي للأعمال - منصة الأعمال"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 4,
+    "fields": {
+      "code": "ZATCA",
+      "name_en": "Zakat, Tax and Customs Authority (ZATCA)",
+      "name_ar": "هيئة الزكاة والضريبة والجمارك"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 5,
+    "fields": {
+      "code": "SPL",
+      "name_en": "Saudi Post (SPL) - National Address",
+      "name_ar": "البريد السعودي - العنوان الوطني"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 6,
+    "fields": {
+      "code": "EJAR",
+      "name_en": "Ejar",
+      "name_ar": "إيجار"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 7,
+    "fields": {
+      "code": "SBC_CODE",
+      "name_en": "Saudi Building Code National Committee",
+      "name_ar": "اللجنة الوطنية لكود البناء السعودي"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 8,
+    "fields": {
+      "code": "CIVIL_DEFENSE",
+      "name_en": "General Directorate of Civil Defense - Salama",
+      "name_ar": "المديرية العامة للدفاع المدني – سلامة"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 9,
+    "fields": {
+      "code": "GOSI",
+      "name_en": "General Organization for Social Insurance (GOSI)",
+      "name_ar": "المؤسسة العامة للتأمينات الاجتماعية"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 10,
+    "fields": {
+      "code": "MHRSD",
+      "name_en": "Ministry of Human Resources and Social Development (MHRSD)",
+      "name_ar": "وزارة الموارد البشرية والتنمية الاجتماعية"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 11,
+    "fields": {
+      "code": "Qiwa",
+      "name_en": "Qiwa",
+      "name_ar": "قوى"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 12,
+    "fields": {
+      "code": "MUDAD",
+      "name_en": "Mudad",
+      "name_ar": "مدد"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 13,
+    "fields": {
+      "code": "SDAIA",
+      "name_en": "Saudi Data & AI Authority (SDAIA)",
+      "name_ar": "الهيئة السعودية للبيانات والذكاء الاصطناعي"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 14,
+    "fields": {
+      "code": "TGA_NAQL",
+      "name_en": "Transport General Authority (TGA) – Naql",
+      "name_ar": "الهيئة العامة للنقل – نقل"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 15,
+    "fields": {
+      "code": "SFDA",
+      "name_en": "Saudi Food and Drug Authority (SFDA)",
+      "name_ar": "الهيئة العامة للغذاء والدواء"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 16,
+    "fields": {
+      "code": "MOI",
+      "name_en": "Ministry of Interior",
+      "name_ar": "وزارة الداخلية"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 17,
+    "fields": {
+      "code": "GEA",
+      "name_en": "General Entertainment Authority (GEA)",
+      "name_ar": "الهيئة العامة للترفيه"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 18,
+    "fields": {
+      "code": "MONSHAAT",
+      "name_en": "Monshaat (SME General Authority)",
+      "name_ar": "الهيئة العامة للمنشآت الصغيرة والمتوسطة – منشآت"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 19,
+    "fields": {
+      "code": "MUQEEM",
+      "name_en": "General Directorate of Passports – Muqeem",
+      "name_ar": "المديرية العامة للجوازات – مقيم"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 2,
+    "fields": {
+      "code": "R01",
+      "name_ar": "الاستعلام عن اشتراطات النشاط التجاري (بطاقة النشاط)",
+      "name_en": "Activity requirements inquiry (activity card / ISIC)",
+      "description_ar": "",
+      "description_en": "Check location and space rules before signing a lease",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 3,
+    "fields": {
+      "code": "R02",
+      "name_ar": "إصدار السجل التجاري وحجز الاسم التجاري",
+      "name_en": "Commercial Registration (CR) + trade name",
+      "description_ar": "",
+      "description_en": "Legal identity of the business",
+      "authority": 2,
+      "official_url": "https://business.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 4,
+    "fields": {
+      "code": "R03",
+      "name_ar": "التسجيل في الزكاة وتقديم الإقرار الزكوي السنوي",
+      "name_en": "Zakat registration + annual return",
+      "description_ar": "",
+      "description_en": "Zakat compliance",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 5,
+    "fields": {
+      "code": "R04",
+      "name_ar": "تسجيل العنوان الوطني للمنشأة",
+      "name_en": "National Address",
+      "description_ar": "",
+      "description_en": "Official address for government services",
+      "authority": 5,
+      "official_url": "https://splonline.com.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 6,
+    "fields": {
+      "code": "R05",
+      "name_ar": "توثيق عقد الإيجار التجاري",
+      "name_en": "Documented commercial lease",
+      "description_ar": "",
+      "description_en": "Proves right to use the site",
+      "authority": 6,
+      "official_url": "https://ejar.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 7,
+    "fields": {
+      "code": "R06",
+      "name_ar": "رخصة البناء / رخصة الترميم",
+      "name_en": "Building / restoration (fit-out) permit",
+      "description_ar": "",
+      "description_en": "Construction and fit-out approval",
+      "authority": 1,
+      "official_url": "https://sbc.gov.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 8,
+    "fields": {
+      "code": "R07",
+      "name_ar": "ترخيص السلامة من الدفاع المدني",
+      "name_en": "Civil Defense safety license / approval",
+      "description_ar": "",
+      "description_en": "Fire and life safety",
+      "authority": 8,
+      "official_url": "https://salama.998.gov.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 9,
+    "fields": {
+      "code": "R08",
+      "name_ar": "إصدار رخصة تجارية (بلدية): مقهى / مطبخ سحابي / كشك غذائي",
+      "name_en": "Commercial (municipal) license: café / cloud kitchen / food kiosk",
+      "description_ar": "",
+      "description_en": "Permission to operate at a specific site",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 10,
+    "fields": {
+      "code": "R09",
+      "name_ar": "الالتزام باشتراطات اللوحات التجارية",
+      "name_en": "Commercial signage compliance",
+      "description_ar": "",
+      "description_en": "Storefront sign rules",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "CONDITIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 11,
+    "fields": {
+      "code": "R10",
+      "name_ar": "تصريح تقديم منتجات التبغ",
+      "name_en": "Tobacco serving permit",
+      "description_ar": "",
+      "description_en": "Allows shisha/tobacco service",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/ar/e-services/tobacco-products-presentation",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 12,
+    "fields": {
+      "code": "R11",
+      "name_ar": "منصة رسم تقديم منتجات التبغ (الإفصاح والسداد الشهري)",
+      "name_en": "Tobacco fee platform + fee regulation",
+      "description_ar": "",
+      "description_en": "Monthly sales disclosure and fee payment",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/ar/e-services/tobacco-product-presentation-fee",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 13,
+    "fields": {
+      "code": "R12",
+      "name_ar": "تصريح التوصيل المنزلي",
+      "name_en": "Home delivery permit",
+      "description_ar": "",
+      "description_en": "Approval for the café to deliver",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/sites/default/files/2025-02/alashtratat%20albldyt%20lkhdmt%20altwsyl%20almnzly.pdf",
+      "is_active": true,
+      "mandatory_status": "CONDITIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 14,
+    "fields": {
+      "code": "R13",
+      "name_ar": "رخصة إشغال رصيف",
+      "name_en": "Sidewalk occupancy license",
+      "description_ar": "",
+      "description_en": "Outdoor seating",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/sites/default/files/2025-08/ashtratat%20tsryh%20ashghal%20rsyf%20m%60tmd.pdf",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 15,
+    "fields": {
+      "code": "R14",
+      "name_ar": "إصدار شهادة صحية للعاملين",
+      "name_en": "Health certificates for staff",
+      "description_ar": "",
+      "description_en": "Every food handler, including delivery staff",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 16,
+    "fields": {
+      "code": "R15",
+      "name_ar": "تسجيل المنشأة والمشتركين في التأمينات الاجتماعية",
+      "name_en": "GOSI establishment + employee registration",
+      "description_ar": "",
+      "description_en": "Social insurance",
+      "authority": 9,
+      "official_url": "https://gosi.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 17,
+    "fields": {
+      "code": "R16",
+      "name_ar": "ملف المنشأة ورخص العمل وتوثيق العقود ونطاقات (قوى) وإدارة الإقامات (مقيم)",
+      "name_en": "Establishment file, work permits, contract documentation, Nitaqat (+ Muqeem for iqamas)",
+      "description_ar": "",
+      "description_en": "Labor compliance",
+      "authority": 11,
+      "official_url": "https://qiwa.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 18,
+    "fields": {
+      "code": "R17",
+      "name_ar": "برنامج حماية الأجور (مدد)",
+      "name_en": "Wage Protection System (Mudad)",
+      "description_ar": "",
+      "description_en": "Monthly payroll compliance",
+      "authority": 12,
+      "official_url": "https://hrsd.gov.sa/ministry-services/services/wage-protection-file-upload-service",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 19,
+    "fields": {
+      "code": "R18",
+      "name_ar": "قرار توطين أنشطة المقاهي",
+      "name_en": "Café localization (Saudization) decision",
+      "description_ar": "",
+      "description_en": "Saudi staffing ratios",
+      "authority": 10,
+      "official_url": "https://www.hrsd.gov.sa/media-center/news/899711",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 20,
+    "fields": {
+      "code": "R19",
+      "name_ar": "التسجيل في ضريبة القيمة المضافة",
+      "name_en": "VAT registration",
+      "description_ar": "",
+      "description_en": "Value-added tax",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa/en/HelpCenter/FAQs/Pages/FAQ_024.aspx",
+      "is_active": true,
+      "mandatory_status": "CONDITIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 21,
+    "fields": {
+      "code": "R20",
+      "name_ar": "الفوترة الإلكترونية (فاتورة)",
+      "name_en": "E-invoicing (Fatoora)",
+      "description_ar": "",
+      "description_en": "Compliant invoices",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 22,
+    "fields": {
+      "code": "R21",
+      "name_ar": "الضريبة الانتقائية والطوابع الضريبية",
+      "name_en": "Excise tax / tax stamps",
+      "description_ar": "",
+      "description_en": "Tax on tobacco and sweetened drinks",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa/en/RulesRegulations/Taxes/Pages/tax-stamp-system.aspx",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 23,
+    "fields": {
+      "code": "R22",
+      "name_ar": "توثيق المتجر الإلكتروني (منصة الأعمال)",
+      "name_en": "E-commerce store authentication (replaced Maroof)",
+      "description_ar": "",
+      "description_en": "Legitimacy of own website or app",
+      "authority": 3,
+      "official_url": "https://business.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 24,
+    "fields": {
+      "code": "R23",
+      "name_ar": "الامتثال لنظام حماية البيانات الشخصية",
+      "name_en": "Personal Data Protection Law (PDPL) compliance",
+      "description_ar": "",
+      "description_en": "Customer data (online ordering, loyalty)",
+      "authority": 13,
+      "official_url": "https://sdaia.gov.sa",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 25,
+    "fields": {
+      "code": "R24",
+      "name_ar": "ترخيص نشاط توصيل الطلبات",
+      "name_en": "Delivery licensing",
+      "description_ar": "",
+      "description_en": "Regulates delivery apps and fleets",
+      "authority": 14,
+      "official_url": "https://naql.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 26,
+    "fields": {
+      "code": "R25",
+      "name_ar": "اشتراطات سلامة الغذاء ومسببات الحساسية والسعرات / ترخيص مصنع أو مستورد",
+      "name_en": "Food safety standards; factory/importer license",
+      "description_ar": "",
+      "description_en": "Food safety, allergens, calories; roasting/packaging/importing",
+      "authority": 15,
+      "official_url": "https://sfda.gov.sa",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 27,
+    "fields": {
+      "code": "R26",
+      "name_ar": "نظام استخدام كاميرات المراقبة الأمنية",
+      "name_en": "Security surveillance cameras law (CCTV)",
+      "description_ar": "",
+      "description_en": "CCTV installation",
+      "authority": 16,
+      "official_url": "https://moi.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 28,
+    "fields": {
+      "code": "R27",
+      "name_ar": "تصريح العروض الحية في المطاعم والمقاهي",
+      "name_en": "Live performance permit in restaurants & cafés",
+      "description_ar": "",
+      "description_en": "Music or comedy shows",
+      "authority": 17,
+      "official_url": "https://gea.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 29,
+    "fields": {
+      "code": "R28",
+      "name_ar": "دليل افتتاح مقهى (كوفي شوب)",
+      "name_en": "Coffee shop roadmap guide",
+      "description_ar": "",
+      "description_en": "SME guidance",
+      "authority": 18,
+      "official_url": "https://www.monshaat.gov.sa/sites/default/files/g_3.pdf",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 2,
+    "fields": {
+      "service": 16,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 3,
+    "fields": {
+      "service": 11,
+      "logic": "ALL",
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 4,
+    "fields": {
+      "service": 12,
+      "logic": "ALL",
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 5,
+    "fields": {
+      "service": 23,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 6,
+    "fields": {
+      "service": 17,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 7,
+    "fields": {
+      "service": 18,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 8,
+    "fields": {
+      "service": 22,
+      "logic": "ANY",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 2,
+    "fields": {
+      "rule": 2,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_employees",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 3,
+    "fields": {
+      "rule": 3,
+      "source": "ACTIVITY",
+      "question": null,
+      "field_name": null,
+      "operator": "EQUALS",
+      "expected_value": "CAFE_B"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 4,
+    "fields": {
+      "rule": 4,
+      "source": "ACTIVITY",
+      "question": null,
+      "field_name": null,
+      "operator": "EQUALS",
+      "expected_value": "CAFE_B"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 5,
+    "fields": {
+      "rule": 5,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_ecommerce",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 6,
+    "fields": {
+      "rule": 6,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_employees",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 7,
+    "fields": {
+      "rule": 7,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_employees",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 8,
+    "fields": {
+      "rule": 8,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "direct_importer",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 9,
+    "fields": {
+      "rule": 8,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "is_manufacturer",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 2,
+    "fields": {
+      "service": 4,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 3,
+    "fields": {
+      "service": 5,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 4,
+    "fields": {
+      "service": 6,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 5,
+    "fields": {
+      "service": 6,
+      "prerequisite": 5
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 6,
+    "fields": {
+      "service": 7,
+      "prerequisite": 6
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 7,
+    "fields": {
+      "service": 8,
+      "prerequisite": 6
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 8,
+    "fields": {
+      "service": 9,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 9,
+    "fields": {
+      "service": 9,
+      "prerequisite": 6
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 10,
+    "fields": {
+      "service": 9,
+      "prerequisite": 8
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 11,
+    "fields": {
+      "service": 10,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 12,
+    "fields": {
+      "service": 11,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 13,
+    "fields": {
+      "service": 12,
+      "prerequisite": 11
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 14,
+    "fields": {
+      "service": 13,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 15,
+    "fields": {
+      "service": 14,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 16,
+    "fields": {
+      "service": 15,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 17,
+    "fields": {
+      "service": 16,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 18,
+    "fields": {
+      "service": 17,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 19,
+    "fields": {
+      "service": 17,
+      "prerequisite": 16
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 20,
+    "fields": {
+      "service": 18,
+      "prerequisite": 16
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 21,
+    "fields": {
+      "service": 18,
+      "prerequisite": 17
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 22,
+    "fields": {
+      "service": 19,
+      "prerequisite": 17
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 23,
+    "fields": {
+      "service": 20,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 24,
+    "fields": {
+      "service": 21,
+      "prerequisite": 20
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 25,
+    "fields": {
+      "service": 22,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 26,
+    "fields": {
+      "service": 23,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 27,
+    "fields": {
+      "service": 25,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 28,
+    "fields": {
+      "service": 27,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 29,
+    "fields": {
+      "service": 28,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 1,
+    "fields": {
+      "service": 11,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 2,
+    "fields": {
+      "service": 2,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 3,
+    "fields": {
+      "service": 2,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 4,
+    "fields": {
+      "service": 2,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 5,
+    "fields": {
+      "service": 2,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 6,
+    "fields": {
+      "service": 3,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 7,
+    "fields": {
+      "service": 3,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 8,
+    "fields": {
+      "service": 3,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 9,
+    "fields": {
+      "service": 3,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 10,
+    "fields": {
+      "service": 4,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 11,
+    "fields": {
+      "service": 4,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 12,
+    "fields": {
+      "service": 4,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 13,
+    "fields": {
+      "service": 4,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 14,
+    "fields": {
+      "service": 5,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 15,
+    "fields": {
+      "service": 5,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 16,
+    "fields": {
+      "service": 5,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 17,
+    "fields": {
+      "service": 5,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 18,
+    "fields": {
+      "service": 6,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 19,
+    "fields": {
+      "service": 6,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 20,
+    "fields": {
+      "service": 6,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 21,
+    "fields": {
+      "service": 6,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 22,
+    "fields": {
+      "service": 7,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 23,
+    "fields": {
+      "service": 7,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 24,
+    "fields": {
+      "service": 7,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 25,
+    "fields": {
+      "service": 7,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 26,
+    "fields": {
+      "service": 8,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 27,
+    "fields": {
+      "service": 8,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 28,
+    "fields": {
+      "service": 8,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 29,
+    "fields": {
+      "service": 8,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 30,
+    "fields": {
+      "service": 9,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 31,
+    "fields": {
+      "service": 9,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 32,
+    "fields": {
+      "service": 9,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 33,
+    "fields": {
+      "service": 9,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 34,
+    "fields": {
+      "service": 10,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 35,
+    "fields": {
+      "service": 10,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 36,
+    "fields": {
+      "service": 10,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 37,
+    "fields": {
+      "service": 10,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 38,
+    "fields": {
+      "service": 12,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 39,
+    "fields": {
+      "service": 13,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 40,
+    "fields": {
+      "service": 13,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 41,
+    "fields": {
+      "service": 13,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 42,
+    "fields": {
+      "service": 13,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 43,
+    "fields": {
+      "service": 14,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 44,
+    "fields": {
+      "service": 14,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 45,
+    "fields": {
+      "service": 14,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 46,
+    "fields": {
+      "service": 15,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 47,
+    "fields": {
+      "service": 15,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 48,
+    "fields": {
+      "service": 15,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 49,
+    "fields": {
+      "service": 15,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 50,
+    "fields": {
+      "service": 16,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 51,
+    "fields": {
+      "service": 16,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 52,
+    "fields": {
+      "service": 16,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 53,
+    "fields": {
+      "service": 16,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 54,
+    "fields": {
+      "service": 17,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 55,
+    "fields": {
+      "service": 17,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 56,
+    "fields": {
+      "service": 17,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 57,
+    "fields": {
+      "service": 17,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 58,
+    "fields": {
+      "service": 18,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 59,
+    "fields": {
+      "service": 18,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 60,
+    "fields": {
+      "service": 18,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 61,
+    "fields": {
+      "service": 18,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 62,
+    "fields": {
+      "service": 19,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 63,
+    "fields": {
+      "service": 19,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 64,
+    "fields": {
+      "service": 19,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 65,
+    "fields": {
+      "service": 19,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 66,
+    "fields": {
+      "service": 20,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 67,
+    "fields": {
+      "service": 20,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 68,
+    "fields": {
+      "service": 20,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 69,
+    "fields": {
+      "service": 20,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 70,
+    "fields": {
+      "service": 21,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 71,
+    "fields": {
+      "service": 21,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 72,
+    "fields": {
+      "service": 21,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 73,
+    "fields": {
+      "service": 21,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 74,
+    "fields": {
+      "service": 22,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 75,
+    "fields": {
+      "service": 22,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 76,
+    "fields": {
+      "service": 22,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 77,
+    "fields": {
+      "service": 22,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 78,
+    "fields": {
+      "service": 23,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 79,
+    "fields": {
+      "service": 23,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 80,
+    "fields": {
+      "service": 23,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 81,
+    "fields": {
+      "service": 23,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 82,
+    "fields": {
+      "service": 24,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 83,
+    "fields": {
+      "service": 24,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 84,
+    "fields": {
+      "service": 24,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 85,
+    "fields": {
+      "service": 24,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 86,
+    "fields": {
+      "service": 25,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 87,
+    "fields": {
+      "service": 25,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 88,
+    "fields": {
+      "service": 25,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 89,
+    "fields": {
+      "service": 25,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 90,
+    "fields": {
+      "service": 26,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 91,
+    "fields": {
+      "service": 26,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 92,
+    "fields": {
+      "service": 26,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 93,
+    "fields": {
+      "service": 26,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 94,
+    "fields": {
+      "service": 27,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 95,
+    "fields": {
+      "service": 27,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 96,
+    "fields": {
+      "service": 27,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 97,
+    "fields": {
+      "service": 27,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 98,
+    "fields": {
+      "service": 28,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 99,
+    "fields": {
+      "service": 28,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 100,
+    "fields": {
+      "service": 28,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 101,
+    "fields": {
+      "service": 28,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 102,
+    "fields": {
+      "service": 29,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 103,
+    "fields": {
+      "service": 29,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 104,
+    "fields": {
+      "service": 29,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 105,
+    "fields": {
+      "service": 29,
+      "activity": 3
+    }
+  }
+]
