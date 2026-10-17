@@ -1,0 +1,1906 @@
+[
+  {
+    "model": "core.industry",
+    "pk": 1,
+    "fields": {
+      "code": "FOOD_BEVERAGE",
+      "name_ar": "خدمات الأغذية والمشروبات",
+      "name_en": "Food and Beverage Services",
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 1,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_A",
+      "name_ar": "مقهى عادي ومتخصص",
+      "name_en": "Standard & Specialty Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 2,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_B",
+      "name_ar": "مقهى يقدم التبغ والشيشة",
+      "name_en": "Tobacco & Shisha Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 3,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_K",
+      "name_ar": "مقهى كشك وخدمة السيارات",
+      "name_en": "Kiosk & Drive-Thru Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.activity",
+    "pk": 4,
+    "fields": {
+      "industry": 1,
+      "code": "CAFE_C",
+      "name_ar": "مقهى سحابي للتوصيل فقط",
+      "name_en": "Cloud & Delivery-Only Cafe",
+      "parent_activity": null,
+      "official_activity_code": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 1,
+    "fields": {
+      "code": "MOMAH_BALADY",
+      "name_en": "Ministry of Municipalities and Housing (MOMAH) - Balady",
+      "name_ar": "وزارة البلديات والإسكان - بلدي"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 2,
+    "fields": {
+      "code": "MOC",
+      "name_en": "Ministry of Commerce",
+      "name_ar": "وزارة التجارة"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 3,
+    "fields": {
+      "code": "SBC",
+      "name_en": "Saudi Business Center - Business platform",
+      "name_ar": "المركز السعودي للأعمال - منصة الأعمال"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 4,
+    "fields": {
+      "code": "ZATCA",
+      "name_en": "Zakat, Tax and Customs Authority (ZATCA)",
+      "name_ar": "هيئة الزكاة والضريبة والجمارك"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 5,
+    "fields": {
+      "code": "SPL",
+      "name_en": "Saudi Post (SPL) - National Address",
+      "name_ar": "البريد السعودي - العنوان الوطني"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 6,
+    "fields": {
+      "code": "EJAR",
+      "name_en": "Ejar",
+      "name_ar": "إيجار"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 7,
+    "fields": {
+      "code": "SBC_CODE",
+      "name_en": "Saudi Building Code National Committee",
+      "name_ar": "اللجنة الوطنية لكود البناء السعودي"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 8,
+    "fields": {
+      "code": "CIVIL_DEFENSE",
+      "name_en": "General Directorate of Civil Defense - Salama",
+      "name_ar": "المديرية العامة للدفاع المدني – سلامة"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 9,
+    "fields": {
+      "code": "GOSI",
+      "name_en": "General Organization for Social Insurance (GOSI)",
+      "name_ar": "المؤسسة العامة للتأمينات الاجتماعية"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 10,
+    "fields": {
+      "code": "MHRSD",
+      "name_en": "Ministry of Human Resources and Social Development (MHRSD)",
+      "name_ar": "وزارة الموارد البشرية والتنمية الاجتماعية"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 11,
+    "fields": {
+      "code": "Qiwa",
+      "name_en": "Qiwa",
+      "name_ar": "قوى"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 12,
+    "fields": {
+      "code": "MUDAD",
+      "name_en": "Mudad",
+      "name_ar": "مدد"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 13,
+    "fields": {
+      "code": "SDAIA",
+      "name_en": "Saudi Data & AI Authority (SDAIA)",
+      "name_ar": "الهيئة السعودية للبيانات والذكاء الاصطناعي"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 14,
+    "fields": {
+      "code": "TGA_NAQL",
+      "name_en": "Transport General Authority (TGA) – Naql",
+      "name_ar": "الهيئة العامة للنقل – نقل"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 15,
+    "fields": {
+      "code": "SFDA",
+      "name_en": "Saudi Food and Drug Authority (SFDA)",
+      "name_ar": "الهيئة العامة للغذاء والدواء"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 16,
+    "fields": {
+      "code": "MOI",
+      "name_en": "Ministry of Interior",
+      "name_ar": "وزارة الداخلية"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 17,
+    "fields": {
+      "code": "GEA",
+      "name_en": "General Entertainment Authority (GEA)",
+      "name_ar": "الهيئة العامة للترفيه"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 18,
+    "fields": {
+      "code": "MONSHAAT",
+      "name_en": "Monshaat (SME General Authority)",
+      "name_ar": "الهيئة العامة للمنشآت الصغيرة والمتوسطة – منشآت"
+    }
+  },
+  {
+    "model": "core.authority",
+    "pk": 19,
+    "fields": {
+      "code": "MUQEEM",
+      "name_en": "General Directorate of Passports – Muqeem",
+      "name_ar": "المديرية العامة للجوازات – مقيم"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 2,
+    "fields": {
+      "code": "R01",
+      "name_ar": "الاستعلام عن اشتراطات النشاط التجاري (بطاقة النشاط)",
+      "name_en": "Activity requirements inquiry (activity card / ISIC)",
+      "description_ar": "",
+      "description_en": "Check location and space rules before signing a lease",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 3,
+    "fields": {
+      "code": "R02",
+      "name_ar": "إصدار السجل التجاري وحجز الاسم التجاري",
+      "name_en": "Commercial Registration (CR) + trade name",
+      "description_ar": "",
+      "description_en": "Legal identity of the business",
+      "authority": 2,
+      "official_url": "https://business.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 4,
+    "fields": {
+      "code": "R03",
+      "name_ar": "التسجيل في الزكاة وتقديم الإقرار الزكوي السنوي",
+      "name_en": "Zakat registration + annual return",
+      "description_ar": "",
+      "description_en": "Zakat compliance",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 5,
+    "fields": {
+      "code": "R04",
+      "name_ar": "تسجيل العنوان الوطني للمنشأة",
+      "name_en": "National Address",
+      "description_ar": "",
+      "description_en": "Official address for government services",
+      "authority": 5,
+      "official_url": "https://splonline.com.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 6,
+    "fields": {
+      "code": "R05",
+      "name_ar": "توثيق عقد الإيجار التجاري",
+      "name_en": "Documented commercial lease",
+      "description_ar": "",
+      "description_en": "Proves right to use the site",
+      "authority": 6,
+      "official_url": "https://ejar.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 7,
+    "fields": {
+      "code": "R06",
+      "name_ar": "رخصة البناء / رخصة الترميم",
+      "name_en": "Building / restoration (fit-out) permit",
+      "description_ar": "",
+      "description_en": "Construction and fit-out approval",
+      "authority": 1,
+      "official_url": "https://sbc.gov.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 8,
+    "fields": {
+      "code": "R07",
+      "name_ar": "ترخيص السلامة من الدفاع المدني",
+      "name_en": "Civil Defense safety license / approval",
+      "description_ar": "",
+      "description_en": "Fire and life safety",
+      "authority": 8,
+      "official_url": "https://salama.998.gov.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 9,
+    "fields": {
+      "code": "R08",
+      "name_ar": "إصدار رخصة تجارية (بلدية): مقهى / مطبخ سحابي / كشك غذائي",
+      "name_en": "Commercial (municipal) license: café / cloud kitchen / food kiosk",
+      "description_ar": "",
+      "description_en": "Permission to operate at a specific site",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 10,
+    "fields": {
+      "code": "R09",
+      "name_ar": "الالتزام باشتراطات اللوحات التجارية",
+      "name_en": "Commercial signage compliance",
+      "description_ar": "",
+      "description_en": "Storefront sign rules",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "CONDITIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 11,
+    "fields": {
+      "code": "R10",
+      "name_ar": "تصريح تقديم منتجات التبغ",
+      "name_en": "Tobacco serving permit",
+      "description_ar": "",
+      "description_en": "Allows shisha/tobacco service",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/ar/e-services/tobacco-products-presentation",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 12,
+    "fields": {
+      "code": "R11",
+      "name_ar": "منصة رسم تقديم منتجات التبغ (الإفصاح والسداد الشهري)",
+      "name_en": "Tobacco fee platform + fee regulation",
+      "description_ar": "",
+      "description_en": "Monthly sales disclosure and fee payment",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/ar/e-services/tobacco-product-presentation-fee",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 13,
+    "fields": {
+      "code": "R12",
+      "name_ar": "تصريح التوصيل المنزلي",
+      "name_en": "Home delivery permit",
+      "description_ar": "",
+      "description_en": "Approval for the café to deliver",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/sites/default/files/2025-02/alashtratat%20albldyt%20lkhdmt%20altwsyl%20almnzly.pdf",
+      "is_active": true,
+      "mandatory_status": "CONDITIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 14,
+    "fields": {
+      "code": "R13",
+      "name_ar": "رخصة إشغال رصيف",
+      "name_en": "Sidewalk occupancy license",
+      "description_ar": "",
+      "description_en": "Outdoor seating",
+      "authority": 1,
+      "official_url": "https://momah.gov.sa/sites/default/files/2025-08/ashtratat%20tsryh%20ashghal%20rsyf%20m%60tmd.pdf",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 15,
+    "fields": {
+      "code": "R14",
+      "name_ar": "إصدار شهادة صحية للعاملين",
+      "name_en": "Health certificates for staff",
+      "description_ar": "",
+      "description_en": "Every food handler, including delivery staff",
+      "authority": 1,
+      "official_url": "https://balady.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 16,
+    "fields": {
+      "code": "R15",
+      "name_ar": "تسجيل المنشأة والمشتركين في التأمينات الاجتماعية",
+      "name_en": "GOSI establishment + employee registration",
+      "description_ar": "",
+      "description_en": "Social insurance",
+      "authority": 9,
+      "official_url": "https://gosi.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 17,
+    "fields": {
+      "code": "R16",
+      "name_ar": "ملف المنشأة ورخص العمل وتوثيق العقود ونطاقات (قوى) وإدارة الإقامات (مقيم)",
+      "name_en": "Establishment file, work permits, contract documentation, Nitaqat (+ Muqeem for iqamas)",
+      "description_ar": "",
+      "description_en": "Labor compliance",
+      "authority": 11,
+      "official_url": "https://qiwa.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 18,
+    "fields": {
+      "code": "R17",
+      "name_ar": "برنامج حماية الأجور (مدد)",
+      "name_en": "Wage Protection System (Mudad)",
+      "description_ar": "",
+      "description_en": "Monthly payroll compliance",
+      "authority": 12,
+      "official_url": "https://hrsd.gov.sa/ministry-services/services/wage-protection-file-upload-service",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 19,
+    "fields": {
+      "code": "R18",
+      "name_ar": "قرار توطين أنشطة المقاهي",
+      "name_en": "Café localization (Saudization) decision",
+      "description_ar": "",
+      "description_en": "Saudi staffing ratios",
+      "authority": 10,
+      "official_url": "https://www.hrsd.gov.sa/media-center/news/899711",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 20,
+    "fields": {
+      "code": "R19",
+      "name_ar": "التسجيل في ضريبة القيمة المضافة",
+      "name_en": "VAT registration",
+      "description_ar": "",
+      "description_en": "Value-added tax",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa/en/HelpCenter/FAQs/Pages/FAQ_024.aspx",
+      "is_active": true,
+      "mandatory_status": "CONDITIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 21,
+    "fields": {
+      "code": "R20",
+      "name_ar": "الفوترة الإلكترونية (فاتورة)",
+      "name_en": "E-invoicing (Fatoora)",
+      "description_ar": "",
+      "description_en": "Compliant invoices",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 22,
+    "fields": {
+      "code": "R21",
+      "name_ar": "الضريبة الانتقائية والطوابع الضريبية",
+      "name_en": "Excise tax / tax stamps",
+      "description_ar": "",
+      "description_en": "Tax on tobacco and sweetened drinks",
+      "authority": 4,
+      "official_url": "https://zatca.gov.sa/en/RulesRegulations/Taxes/Pages/tax-stamp-system.aspx",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 23,
+    "fields": {
+      "code": "R22",
+      "name_ar": "توثيق المتجر الإلكتروني (منصة الأعمال)",
+      "name_en": "E-commerce store authentication (replaced Maroof)",
+      "description_ar": "",
+      "description_en": "Legitimacy of own website or app",
+      "authority": 3,
+      "official_url": "https://business.sa",
+      "is_active": true,
+      "mandatory_status": "UNDECIDED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 24,
+    "fields": {
+      "code": "R23",
+      "name_ar": "الامتثال لنظام حماية البيانات الشخصية",
+      "name_en": "Personal Data Protection Law (PDPL) compliance",
+      "description_ar": "",
+      "description_en": "Customer data (online ordering, loyalty)",
+      "authority": 13,
+      "official_url": "https://sdaia.gov.sa",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 25,
+    "fields": {
+      "code": "R24",
+      "name_ar": "ترخيص نشاط توصيل الطلبات",
+      "name_en": "Delivery licensing",
+      "description_ar": "",
+      "description_en": "Regulates delivery apps and fleets",
+      "authority": 14,
+      "official_url": "https://naql.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 26,
+    "fields": {
+      "code": "R25",
+      "name_ar": "اشتراطات سلامة الغذاء ومسببات الحساسية والسعرات / ترخيص مصنع أو مستورد",
+      "name_en": "Food safety standards; factory/importer license",
+      "description_ar": "",
+      "description_en": "Food safety, allergens, calories; roasting/packaging/importing",
+      "authority": 15,
+      "official_url": "https://sfda.gov.sa",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 27,
+    "fields": {
+      "code": "R26",
+      "name_ar": "نظام استخدام كاميرات المراقبة الأمنية",
+      "name_en": "Security surveillance cameras law (CCTV)",
+      "description_ar": "",
+      "description_en": "CCTV installation",
+      "authority": 16,
+      "official_url": "https://moi.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 28,
+    "fields": {
+      "code": "R27",
+      "name_ar": "تصريح العروض الحية في المطاعم والمقاهي",
+      "name_en": "Live performance permit in restaurants & cafés",
+      "description_ar": "",
+      "description_en": "Music or comedy shows",
+      "authority": 17,
+      "official_url": "https://gea.gov.sa",
+      "is_active": true,
+      "mandatory_status": "REQUIRED",
+      "applicability": "CONDITIONAL"
+    }
+  },
+  {
+    "model": "core.governmentservice",
+    "pk": 29,
+    "fields": {
+      "code": "R28",
+      "name_ar": "دليل افتتاح مقهى (كوفي شوب)",
+      "name_en": "Coffee shop roadmap guide",
+      "description_ar": "",
+      "description_en": "SME guidance",
+      "authority": 18,
+      "official_url": "https://www.monshaat.gov.sa/sites/default/files/g_3.pdf",
+      "is_active": true,
+      "mandatory_status": "OPTIONAL",
+      "applicability": "ALWAYS"
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 2,
+    "fields": {
+      "service": 16,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 3,
+    "fields": {
+      "service": 11,
+      "logic": "ALL",
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 4,
+    "fields": {
+      "service": 12,
+      "logic": "ALL",
+      "is_active": true
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 5,
+    "fields": {
+      "service": 23,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 6,
+    "fields": {
+      "service": 17,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 7,
+    "fields": {
+      "service": 18,
+      "logic": "ALL",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicerule",
+    "pk": 8,
+    "fields": {
+      "service": 22,
+      "logic": "ANY",
+      "is_active": false
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 2,
+    "fields": {
+      "rule": 2,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_employees",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 3,
+    "fields": {
+      "rule": 3,
+      "source": "ACTIVITY",
+      "question": null,
+      "field_name": null,
+      "operator": "EQUALS",
+      "expected_value": "CAFE_B"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 4,
+    "fields": {
+      "rule": 4,
+      "source": "ACTIVITY",
+      "question": null,
+      "field_name": null,
+      "operator": "EQUALS",
+      "expected_value": "CAFE_B"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 5,
+    "fields": {
+      "rule": 5,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_ecommerce",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 6,
+    "fields": {
+      "rule": 6,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_employees",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 7,
+    "fields": {
+      "rule": 7,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "has_employees",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 8,
+    "fields": {
+      "rule": 8,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "direct_importer",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicecondition",
+    "pk": 9,
+    "fields": {
+      "rule": 8,
+      "source": "PROFILE_FIELD",
+      "question": null,
+      "field_name": "is_manufacturer",
+      "operator": "EQUALS",
+      "expected_value": "true"
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 2,
+    "fields": {
+      "service": 4,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 3,
+    "fields": {
+      "service": 5,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 4,
+    "fields": {
+      "service": 6,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 5,
+    "fields": {
+      "service": 6,
+      "prerequisite": 5
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 6,
+    "fields": {
+      "service": 7,
+      "prerequisite": 6
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 7,
+    "fields": {
+      "service": 8,
+      "prerequisite": 6
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 8,
+    "fields": {
+      "service": 9,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 9,
+    "fields": {
+      "service": 9,
+      "prerequisite": 6
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 10,
+    "fields": {
+      "service": 9,
+      "prerequisite": 8
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 11,
+    "fields": {
+      "service": 10,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 12,
+    "fields": {
+      "service": 11,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 13,
+    "fields": {
+      "service": 12,
+      "prerequisite": 11
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 14,
+    "fields": {
+      "service": 13,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 15,
+    "fields": {
+      "service": 14,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 16,
+    "fields": {
+      "service": 15,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 17,
+    "fields": {
+      "service": 16,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 18,
+    "fields": {
+      "service": 17,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 19,
+    "fields": {
+      "service": 17,
+      "prerequisite": 16
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 20,
+    "fields": {
+      "service": 18,
+      "prerequisite": 16
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 21,
+    "fields": {
+      "service": 18,
+      "prerequisite": 17
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 22,
+    "fields": {
+      "service": 19,
+      "prerequisite": 17
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 23,
+    "fields": {
+      "service": 20,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 24,
+    "fields": {
+      "service": 21,
+      "prerequisite": 20
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 25,
+    "fields": {
+      "service": 22,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 26,
+    "fields": {
+      "service": 23,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 27,
+    "fields": {
+      "service": 25,
+      "prerequisite": 3
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 28,
+    "fields": {
+      "service": 27,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.servicedependency",
+    "pk": 29,
+    "fields": {
+      "service": 28,
+      "prerequisite": 9
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 1,
+    "fields": {
+      "service": 11,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 2,
+    "fields": {
+      "service": 2,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 3,
+    "fields": {
+      "service": 2,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 4,
+    "fields": {
+      "service": 2,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 5,
+    "fields": {
+      "service": 2,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 6,
+    "fields": {
+      "service": 3,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 7,
+    "fields": {
+      "service": 3,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 8,
+    "fields": {
+      "service": 3,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 9,
+    "fields": {
+      "service": 3,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 10,
+    "fields": {
+      "service": 4,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 11,
+    "fields": {
+      "service": 4,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 12,
+    "fields": {
+      "service": 4,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 13,
+    "fields": {
+      "service": 4,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 14,
+    "fields": {
+      "service": 5,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 15,
+    "fields": {
+      "service": 5,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 16,
+    "fields": {
+      "service": 5,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 17,
+    "fields": {
+      "service": 5,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 18,
+    "fields": {
+      "service": 6,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 19,
+    "fields": {
+      "service": 6,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 20,
+    "fields": {
+      "service": 6,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 21,
+    "fields": {
+      "service": 6,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 22,
+    "fields": {
+      "service": 7,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 23,
+    "fields": {
+      "service": 7,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 24,
+    "fields": {
+      "service": 7,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 25,
+    "fields": {
+      "service": 7,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 26,
+    "fields": {
+      "service": 8,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 27,
+    "fields": {
+      "service": 8,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 28,
+    "fields": {
+      "service": 8,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 29,
+    "fields": {
+      "service": 8,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 30,
+    "fields": {
+      "service": 9,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 31,
+    "fields": {
+      "service": 9,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 32,
+    "fields": {
+      "service": 9,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 33,
+    "fields": {
+      "service": 9,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 34,
+    "fields": {
+      "service": 10,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 35,
+    "fields": {
+      "service": 10,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 36,
+    "fields": {
+      "service": 10,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 37,
+    "fields": {
+      "service": 10,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 38,
+    "fields": {
+      "service": 12,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 39,
+    "fields": {
+      "service": 13,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 40,
+    "fields": {
+      "service": 13,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 41,
+    "fields": {
+      "service": 13,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 42,
+    "fields": {
+      "service": 13,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 43,
+    "fields": {
+      "service": 14,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 44,
+    "fields": {
+      "service": 14,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 45,
+    "fields": {
+      "service": 14,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 46,
+    "fields": {
+      "service": 15,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 47,
+    "fields": {
+      "service": 15,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 48,
+    "fields": {
+      "service": 15,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 49,
+    "fields": {
+      "service": 15,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 50,
+    "fields": {
+      "service": 16,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 51,
+    "fields": {
+      "service": 16,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 52,
+    "fields": {
+      "service": 16,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 53,
+    "fields": {
+      "service": 16,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 54,
+    "fields": {
+      "service": 17,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 55,
+    "fields": {
+      "service": 17,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 56,
+    "fields": {
+      "service": 17,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 57,
+    "fields": {
+      "service": 17,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 58,
+    "fields": {
+      "service": 18,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 59,
+    "fields": {
+      "service": 18,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 60,
+    "fields": {
+      "service": 18,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 61,
+    "fields": {
+      "service": 18,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 62,
+    "fields": {
+      "service": 19,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 63,
+    "fields": {
+      "service": 19,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 64,
+    "fields": {
+      "service": 19,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 65,
+    "fields": {
+      "service": 19,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 66,
+    "fields": {
+      "service": 20,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 67,
+    "fields": {
+      "service": 20,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 68,
+    "fields": {
+      "service": 20,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 69,
+    "fields": {
+      "service": 20,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 70,
+    "fields": {
+      "service": 21,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 71,
+    "fields": {
+      "service": 21,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 72,
+    "fields": {
+      "service": 21,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 73,
+    "fields": {
+      "service": 21,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 74,
+    "fields": {
+      "service": 22,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 75,
+    "fields": {
+      "service": 22,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 76,
+    "fields": {
+      "service": 22,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 77,
+    "fields": {
+      "service": 22,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 78,
+    "fields": {
+      "service": 23,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 79,
+    "fields": {
+      "service": 23,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 80,
+    "fields": {
+      "service": 23,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 81,
+    "fields": {
+      "service": 23,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 82,
+    "fields": {
+      "service": 24,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 83,
+    "fields": {
+      "service": 24,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 84,
+    "fields": {
+      "service": 24,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 85,
+    "fields": {
+      "service": 24,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 86,
+    "fields": {
+      "service": 25,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 87,
+    "fields": {
+      "service": 25,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 88,
+    "fields": {
+      "service": 25,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 89,
+    "fields": {
+      "service": 25,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 90,
+    "fields": {
+      "service": 26,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 91,
+    "fields": {
+      "service": 26,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 92,
+    "fields": {
+      "service": 26,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 93,
+    "fields": {
+      "service": 26,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 94,
+    "fields": {
+      "service": 27,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 95,
+    "fields": {
+      "service": 27,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 96,
+    "fields": {
+      "service": 27,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 97,
+    "fields": {
+      "service": 27,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 98,
+    "fields": {
+      "service": 28,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 99,
+    "fields": {
+      "service": 28,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 100,
+    "fields": {
+      "service": 28,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 101,
+    "fields": {
+      "service": 28,
+      "activity": 3
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 102,
+    "fields": {
+      "service": 29,
+      "activity": 1
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 103,
+    "fields": {
+      "service": 29,
+      "activity": 2
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 104,
+    "fields": {
+      "service": 29,
+      "activity": 4
+    }
+  },
+  {
+    "model": "core.serviceactivity",
+    "pk": 105,
+    "fields": {
+      "service": 29,
+      "activity": 3
+    }
+  }
+]
