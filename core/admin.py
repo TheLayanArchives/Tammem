@@ -14,7 +14,9 @@ from .models import (
     GovernmentService,
     ServiceRule,
     ServiceCondition,
-    ServiceDependency
+    ServiceDependency,
+    ServiceMandatoryRule,
+    ServiceMandatoryCondition
 )
 
 admin.site.register(Business)
@@ -105,4 +107,41 @@ class ServiceDependencyAdmin(admin.ModelAdmin):
         "service__name_en",
         "prerequisite__code",
         "prerequisite__name_en",
+    )
+
+
+# Manage mandatory rules in Django Admin
+@admin.register(ServiceMandatoryRule)
+class ServiceMandatoryRuleAdmin(admin.ModelAdmin):
+    list_display = (
+        "service",
+        "result_status",
+        "priority",
+        "is_active",
+    )
+
+    list_filter = (
+        "result_status",
+        "is_active",
+    )
+
+    search_fields = (
+        "service__code",
+        "service__name_en",
+    )
+
+
+# Manage conditions for mandatory rules
+@admin.register(ServiceMandatoryCondition)
+class ServiceMandatoryConditionAdmin(admin.ModelAdmin):
+    list_display = (
+        "rule",
+        "field_name",
+        "operator",
+        "expected_value",
+    )
+
+    list_filter = (
+        "field_name",
+        "operator",
     )

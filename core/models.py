@@ -90,11 +90,20 @@ class BusinessProfile(models.Model):
         blank=True,
     )
 
+    
+    REVENUE_BAND_CHOICES = [
+        ("LOW", "SAR 187,500 or less"),
+        ("MEDIUM", "Above SAR 187,500 and below SAR 375,000"),
+        ("HIGH", "SAR 375,000 or more"),
+    ]
+
     expected_taxable_revenue_band = models.CharField(
         max_length=30,
+        choices=REVENUE_BAND_CHOICES,
         null=True,
         blank=True,
     )
+
 
     profile_version = models.PositiveIntegerField(default=1)
 
@@ -181,6 +190,7 @@ class Activity(models.Model):
     def __str__(self):
         return self.name_en
 
+
 class Question(models.Model):
     code = models.CharField(
         max_length=100,
@@ -190,6 +200,7 @@ class Question(models.Model):
     text_ar = models.TextField()
     text_en = models.TextField()
 
+    # Supported answer storage types
     QUESTION_TYPES = [
         ("BOOLEAN", "Yes / No"),
         ("SINGLE", "Single choice"),
@@ -203,6 +214,32 @@ class Question(models.Model):
     question_type = models.CharField(
         max_length=20,
         choices=QUESTION_TYPES,
+    )
+
+    # Original question type from Excel
+    # Example: COUNTRY_SELECT, LOCATION_SELECT
+    input_type = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+    )
+
+    # Original required status from Excel
+    REQUIRED_MODE_CHOICES = [
+        ("YES", "Always required"),
+        ("NO", "Optional"),
+        ("CONDITIONAL", "Conditionally required"),
+        (
+            "DERIVED_CONDITIONAL",
+            "Derived / Conditionally required",
+        ),
+    ]
+
+    required_mode = models.CharField(
+        max_length=30,
+        choices=REQUIRED_MODE_CHOICES,
+        null=True,
+        blank=True,
     )
 
     help_text_ar = models.TextField(
@@ -220,22 +257,27 @@ class Question(models.Model):
 
     display_order = models.PositiveIntegerField(default=0)
 
-    def __str__(self):
-        return self.code
+    # Question scope
     scope = models.CharField(
-    max_length=20,
-    choices=[
-        ("GENERAL", "General"),
-        ("PROFILE", "Business Profile"),
-        ("ACTIVITY", "Activity"),
-    ],
-    default="GENERAL",
+        max_length=20,
+        choices=[
+            ("GENERAL", "General"),
+            ("PROFILE", "Business Profile"),
+            ("ACTIVITY", "Activity"),
+        ],
+        default="GENERAL",
     )
+
+    # Related business activities
     activities = models.ManyToManyField(
         "Activity",
         blank=True,
         related_name="questions",
     )
+
+    def __str__(self):
+        return self.code
+
   
 
 class QuestionOption(models.Model):
@@ -461,6 +503,37 @@ class GovernmentService(models.Model):
     # Whether the service is active in the system
     is_active = models.BooleanField(default=True)
 
+    
+    # Defines whether the service is mandatory or optional
+    
+
+
+    MANDATORY_CHOICES = [
+        ("REQUIRED", "Required"),
+        ("OPTIONAL", "Optional"),
+        ("CONDITIONAL", "Conditional"),
+        ("UNDECIDED", "Undecided - Needs Review"),
+    ]
+
+    mandatory_status = models.CharField(
+        max_length=20,
+        choices=MANDATORY_CHOICES,
+        default="OPTIONAL"
+    )
+
+    # Defines when the service should appear
+    APPLICABILITY_CHOICES = [
+        ("ALWAYS", "Always Applicable"),
+        ("CONDITIONAL", "Conditionally Applicable"),
+    ]
+
+    applicability = models.CharField(
+        max_length=20,
+        choices=APPLICABILITY_CHOICES,
+        default="CONDITIONAL"
+    )
+
+
     def __str__(self):
         return f"{self.code} - {self.name_en}"
 
@@ -496,12 +569,15 @@ class ServiceRule(models.Model):
 
 class ServiceCondition(models.Model):
 
+    
     SOURCE_CHOICES = [
         ("ANSWER", "Business Answer"),
         ("ACTIVITY", "Business Activity"),
         ("INDUSTRY", "Business Industry"),
         ("LOCATION", "Business Location"),
+        ("PROFILE_FIELD", "Business Profile Field"),
     ]
+
 
     OPERATOR_CHOICES = [
         ("EQUALS", "Equals"),
@@ -573,6 +649,7 @@ class ServiceCondition(models.Model):
                     "question": "Question is only allowed for ANSWER conditions."
                 })
 
+            
             if self.source == "LOCATION":
                 allowed_fields = [
                     "city_name_en",
@@ -585,10 +662,26 @@ class ServiceCondition(models.Model):
                         "field_name": "Select a supported location field."
                     })
 
+            # NEW: Allow conditions based on BusinessProfile
+            elif self.source == "PROFILE_FIELD":
+                allowed_fields = [
+                    "has_employees",
+                    "has_ecommerce",
+                    "direct_importer",
+                    "is_manufacturer",
+                    "expected_taxable_revenue_band",
+                ]
+
+                if self.field_name not in allowed_fields:
+                    raise ValidationError({
+                        "field_name": "Select a supported profile field."
+                    })
+
             elif self.field_name:
                 raise ValidationError({
                     "field_name": "Leave this empty for this source."
                 })
+
 
     def __str__(self):
         return (
@@ -596,6 +689,93 @@ class ServiceCondition(models.Model):
             f"{self.operator} "
             f"{self.expected_value}"
         )
+
+
+class ServiceMandatoryRule(models.Model):
+    # Service whose mandatory status depends on a condition
+    service = models.ForeignKey(
+        GovernmentService,
+        on_delete=models.CASCADE,
+        related_name="mandatory_rules"
+    )
+
+    # Mandatory status when the condition matches
+    RESULT_CHOICES = [
+        ("REQUIRED", "Required"),
+        ("OPTIONAL", "Optional"),
+        ("NOT_REQUIRED", "Not Required"),
+    ]
+
+    result_status = models.CharField(
+        max_length=20,
+        choices=RESULT_CHOICES
+    )
+
+    # Lower number means higher priority
+    priority = models.PositiveIntegerField(default=10)
+
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return (
+            f"{self.service.code} - "
+            f"{self.result_status}"
+        )
+
+
+class ServiceMandatoryCondition(models.Model):
+
+    # The mandatory rule that owns this condition
+    rule = models.ForeignKey(
+        ServiceMandatoryRule,
+        on_delete=models.CASCADE,
+        related_name="conditions"
+    )
+
+    # BusinessProfile field used in the condition
+    field_name = models.CharField(max_length=50)
+
+    OPERATOR_CHOICES = [
+        ("EQUALS", "Equals"),
+        ("GREATER_THAN", "Greater than"),
+        ("GREATER_THAN_OR_EQUAL", "Greater than or equal"),
+        ("LESS_THAN", "Less than"),
+        ("LESS_THAN_OR_EQUAL", "Less than or equal"),
+    ]
+
+    operator = models.CharField(
+        max_length=30,
+        choices=OPERATOR_CHOICES
+    )
+
+    # Value to compare against
+    expected_value = models.CharField(max_length=200)
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+
+        super().clean()
+
+        allowed_fields = {
+            "has_employees",
+            "has_ecommerce",
+            "direct_importer",
+            "is_manufacturer",
+            "expected_taxable_revenue_band",
+        }
+
+        if self.field_name not in allowed_fields:
+            raise ValidationError({
+                "field_name": "Select a supported profile field."
+            })
+
+    def __str__(self):
+        return (
+            f"{self.field_name} "
+            f"{self.operator} "
+            f"{self.expected_value}"
+        )
+
 
 class ServiceDependency(models.Model):
 
@@ -641,4 +821,30 @@ class ServiceDependency(models.Model):
             f"{self.prerequisite.code}"
         )
 
-  
+ 
+class ServiceActivity(models.Model):
+    # Government service
+    service = models.ForeignKey(
+        GovernmentService,
+        on_delete=models.CASCADE,
+        related_name="service_activities"
+    )
+
+    # Business activity (cafe type)
+    activity = models.ForeignKey(
+        Activity,
+        on_delete=models.CASCADE,
+        related_name="service_activities"
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["service", "activity"],
+                name="unique_service_activity"
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.service.code} - {self.activity.code}"
+ 

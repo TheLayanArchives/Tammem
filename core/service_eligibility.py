@@ -52,6 +52,7 @@ def get_answer_value(business_profile, question):
 "----------------------------------------------------------------------------"
 from decimal import Decimal, InvalidOperation
 from datetime import date
+
 def evaluate_service_condition(condition, business_profile):
 
     # Step 1: Get the actual value
@@ -75,6 +76,7 @@ def evaluate_service_condition(condition, business_profile):
             else None
         )
 
+    
     elif condition.source == "LOCATION":
         location = business_profile.location
 
@@ -96,8 +98,28 @@ def evaluate_service_condition(condition, business_profile):
             None
         )
 
+    # NEW: Read a field directly from BusinessProfile
+    elif condition.source == "PROFILE_FIELD":
+        allowed_fields = {
+            "has_employees",
+            "has_ecommerce",
+            "direct_importer",
+            "is_manufacturer",
+            "expected_taxable_revenue_band",
+        }
+
+        if condition.field_name not in allowed_fields:
+            return None
+
+        actual_value = getattr(
+            business_profile,
+            condition.field_name,
+            None
+        )
+
     else:
         return None
+
 
     # Step 2: Check for missing values
     if actual_value is None:
@@ -220,6 +242,17 @@ def get_applicable_services(business_profile):
 
     for service in services:
 
+
+        # NEW: Always-applicable services do not need rules
+        if service.applicability == "ALWAYS":
+            applicable_services.append(service)
+            continue
+
+        # Only conditional services need rule evaluation
+        if service.applicability != "CONDITIONAL":
+            unknown_services.append(service)
+            continue
+
         # Get active rules for this service
         rules = [
             rule for rule in service.rules.all()
@@ -252,3 +285,141 @@ def get_applicable_services(business_profile):
         "not_applicable": not_applicable_services,
         "unknown": unknown_services,
     }
+
+def evaluate_mandatory_condition(condition, business_profile):
+    # Only allow approved BusinessProfile fields
+    allowed_fields = {
+        "has_employees",
+        "has_ecommerce",
+        "direct_importer",
+        "is_manufacturer",
+        "expected_taxable_revenue_band",
+    }
+
+    if condition.field_name not in allowed_fields:
+        return None
+
+    # Get the actual value from BusinessProfile
+    actual_value = getattr(
+        business_profile,
+        condition.field_name,
+        None
+    )
+
+    if actual_value is None:
+        return None
+
+    expected_value = condition.expected_value
+    operator = condition.operator
+
+    # Convert expected value for Boolean fields
+    if isinstance(actual_value, bool):
+        normalized = expected_value.strip().lower()
+
+        if normalized not in ("true", "false"):
+            return None
+
+        expected_value = normalized == "true"
+
+    # Ordering comparisons are only valid for numeric values
+    if operator in {
+        "GREATER_THAN",
+        "GREATER_THAN_OR_EQUAL",
+        "LESS_THAN",
+        "LESS_THAN_OR_EQUAL",
+    }:
+        if isinstance(actual_value, bool):
+            return None
+
+        if not isinstance(actual_value, (int, Decimal)):
+            return None
+
+        try:
+            expected_value = Decimal(str(expected_value))
+            actual_value = Decimal(str(actual_value))
+        except (InvalidOperation, ValueError):
+            return None
+
+    # Compare the values
+    if operator == "EQUALS":
+        return actual_value == expected_value
+
+    if operator == "GREATER_THAN":
+        return actual_value > expected_value
+
+    if operator == "GREATER_THAN_OR_EQUAL":
+        return actual_value >= expected_value
+
+    if operator == "LESS_THAN":
+        return actual_value < expected_value
+
+    if operator == "LESS_THAN_OR_EQUAL":
+        return actual_value <= expected_value
+
+    return None
+
+
+def evaluate_mandatory_rule(rule, business_profile):
+    # Inactive rules must not match
+    if not rule.is_active:
+        return False
+
+    conditions = list(rule.conditions.all())
+
+    # A rule without conditions is incomplete
+    if not conditions:
+        return None
+
+    results = [
+        evaluate_mandatory_condition(condition, business_profile)
+        for condition in conditions
+    ]
+
+    # All conditions must be satisfied
+    if False in results:
+        return False
+
+    if None in results:
+        return None
+
+    return True
+
+
+def get_service_mandatory_status(service, business_profile):
+    # Services with a fixed mandatory status
+    if service.mandatory_status in ("REQUIRED", "OPTIONAL"):
+        return service.mandatory_status
+
+    # Only conditional services need mandatory rules
+    if service.mandatory_status != "CONDITIONAL":
+        return "UNKNOWN"
+
+    # Get active mandatory rules ordered by priority
+    rules = (
+        service.mandatory_rules
+        .filter(is_active=True)
+        .prefetch_related("conditions")
+        .order_by("priority", "id")
+    )
+
+    has_unknown = False
+
+    for rule in rules:
+        result = evaluate_mandatory_rule(
+            rule,
+            business_profile
+        )
+
+        if result is None:
+            has_unknown = True
+            continue
+
+        if result is True:
+            # An earlier unknown rule may have higher priority
+            if has_unknown:
+                return "UNKNOWN"
+
+            return rule.result_status
+
+    # No matching rule, or incomplete information
+    return "UNKNOWN"

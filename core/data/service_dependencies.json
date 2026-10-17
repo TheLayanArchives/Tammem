@@ -1,0 +1,117 @@
+
+{
+  "dependencies": [
+    {
+      "service_code": "R03",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R04",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R05",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R05",
+      "depends_on_code": "R04"
+    },
+    {
+      "service_code": "R06",
+      "depends_on_code": "R05"
+    },
+    {
+      "service_code": "R07",
+      "depends_on_code": "R05"
+    },
+    {
+      "service_code": "R08",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R08",
+      "depends_on_code": "R05"
+    },
+    {
+      "service_code": "R08",
+      "depends_on_code": "R07"
+    },
+    {
+      "service_code": "R09",
+      "depends_on_code": "R08"
+    },
+    {
+      "service_code": "R10",
+      "depends_on_code": "R08"
+    },
+    {
+      "service_code": "R11",
+      "depends_on_code": "R10"
+    },
+    {
+      "service_code": "R12",
+      "depends_on_code": "R08"
+    },
+    {
+      "service_code": "R13",
+      "depends_on_code": "R08"
+    },
+    {
+      "service_code": "R14",
+      "depends_on_code": "R08"
+    },
+    {
+      "service_code": "R15",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R16",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R16",
+      "depends_on_code": "R15"
+    },
+    {
+      "service_code": "R17",
+      "depends_on_code": "R15"
+    },
+    {
+      "service_code": "R17",
+      "depends_on_code": "R16"
+    },
+    {
+      "service_code": "R18",
+      "depends_on_code": "R16"
+    },
+    {
+      "service_code": "R19",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R20",
+      "depends_on_code": "R19"
+    },
+    {
+      "service_code": "R21",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R22",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R24",
+      "depends_on_code": "R02"
+    },
+    {
+      "service_code": "R26",
+      "depends_on_code": "R08"
+    },
+    {
+      "service_code": "R27",
+      "depends_on_code": "R08"
+    }
+  ]
+}
