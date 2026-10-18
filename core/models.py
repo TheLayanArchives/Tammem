@@ -847,4 +847,195 @@ class ServiceActivity(models.Model):
 
     def __str__(self):
         return f"{self.service.code} - {self.activity.code}"
- 
+
+
+# ==============================================================
+# Persisted, versioned business pathways (does not change rules).
+# ==============================================================
+
+class Pathway(models.Model):
+    class Status(models.TextChoices):
+        ACTIVE = "ACTIVE", "Active"
+        COMPLETED = "COMPLETED", "Completed"
+        ARCHIVED = "ARCHIVED", "Archived"
+
+    business_profile = models.OneToOneField(
+        BusinessProfile,
+        on_delete=models.PROTECT,
+        related_name="pathway"
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.ACTIVE
+    )
+
+    current_version = models.ForeignKey(
+        "PathwayVersion",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="current_for_pathways",
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Pathway for profile {self.business_profile_id}"
+
+
+class PathwayVersion(models.Model):
+    class Reason(models.TextChoices):
+        INITIAL = "INITIAL", "Initial generation"
+        PROFILE_CHANGED = "PROFILE_CHANGED", "Profile updated"
+        RULES_CHANGED = "RULES_CHANGED", "Government rules updated"
+        MANUAL_REVIEW = "MANUAL_REVIEW", "Manual review"
+
+    pathway = models.ForeignKey(
+        Pathway,
+        on_delete=models.CASCADE,
+        related_name="versions"
+    )
+
+    version_number = models.PositiveIntegerField()
+    profile_version = models.PositiveIntegerField()
+
+    reason = models.CharField(
+        max_length=25,
+        choices=Reason.choices
+    )
+
+    # Frozen generation output for audits.
+    generation_snapshot = models.JSONField(default=dict)
+    generation_hash = models.CharField(max_length=64)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-version_number"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["pathway", "version_number"],
+                name="unique_pathway_version_number"
+            ),
+        ]
+
+    def __str__(self):
+        return f"Pathway {self.pathway_id} v{self.version_number}"
+
+
+class PathwayStep(models.Model):
+    class Status(models.TextChoices):
+        NOT_STARTED = "NOT_STARTED", "Not started"
+        IN_PROGRESS = "IN_PROGRESS", "In progress"
+        COMPLETED = "COMPLETED", "Completed"
+        BLOCKED = "BLOCKED", "Blocked"
+
+    version = models.ForeignKey(
+        PathwayVersion,
+        on_delete=models.CASCADE,
+        related_name="steps"
+    )
+
+    service = models.ForeignKey(
+        GovernmentService,
+        on_delete=models.PROTECT,
+        related_name="pathway_steps"
+    )
+
+    order = models.PositiveIntegerField()
+
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.NOT_STARTED
+    )
+
+    mandatory_status = models.CharField(max_length=25)
+    step_type = models.CharField(max_length=20, default="SERVICE")
+
+    # Preserve service information from this version.
+    service_code_snapshot = models.CharField(max_length=50)
+    service_name_ar_snapshot = models.CharField(max_length=255)
+    service_name_en_snapshot = models.CharField(max_length=255)
+
+    official_url_snapshot = models.URLField(
+        null=True,
+        blank=True
+    )
+
+    warnings = models.JSONField(default=list, blank=True)
+    notes = models.TextField(blank=True)
+
+    completed_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["order", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["version", "service"],
+                name="unique_pathway_version_service"
+            ),
+            models.UniqueConstraint(
+                fields=["version", "order"],
+                name="unique_pathway_version_order"
+            ),
+            models.CheckConstraint(
+                condition=models.Q(order__gte=1),
+                name="pathway_step_order_positive"
+            ),
+        ]
+
+    def __str__(self):
+        return (
+            f"v{self.version_id} "
+            f"#{self.order} {self.service_code_snapshot}"
+        )
+
+
+class PathwayChangeLog(models.Model):
+    class Action(models.TextChoices):
+        VERSION_CREATED = "VERSION_CREATED", "Version created"
+        STEP_ADDED = "STEP_ADDED", "Step added"
+        STEP_REMOVED = "STEP_REMOVED", "Step removed from new version"
+        STEP_REORDERED = "STEP_REORDERED", "Step reordered"
+        STEP_STATUS_CHANGED = "STEP_STATUS_CHANGED", "Step status changed"
+
+    pathway = models.ForeignKey(
+        Pathway,
+        on_delete=models.CASCADE,
+        related_name="change_logs"
+    )
+
+    version = models.ForeignKey(
+        PathwayVersion,
+        on_delete=models.CASCADE,
+        related_name="change_logs"
+    )
+
+    action = models.CharField(
+        max_length=25,
+        choices=Action.choices
+    )
+
+    service_code = models.CharField(max_length=50, blank=True)
+    details = models.JSONField(default=dict)
+
+    changed_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="pathway_changes"
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at", "-id"]
+
+    def __str__(self):
+        return f"{self.action} in v{self.version_id}"
