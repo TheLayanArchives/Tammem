@@ -898,6 +898,7 @@ class PathwayStep(models.Model):
         IN_PROGRESS = "IN_PROGRESS", "In progress"
         COMPLETED = "COMPLETED", "Completed"
         BLOCKED = "BLOCKED", "Blocked"
+        SKIPPED = "SKIPPED", "Skipped"
 
     version = models.ForeignKey(
         PathwayVersion,
@@ -952,6 +953,13 @@ class PathwayStep(models.Model):
             models.CheckConstraint(
                 condition=models.Q(order__gte=1),
                 name="pathway_step_order_positive",
+            ),
+            models.CheckConstraint(
+                condition=(
+                    ~models.Q(status="SKIPPED")
+                    | models.Q(mandatory_status="OPTIONAL")
+                ),
+                name="skipped_pathway_step_must_be_optional",
             ),
         ]
 

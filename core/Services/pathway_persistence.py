@@ -179,7 +179,14 @@ def save_business_pathway(
                 f"Invalid generated status for service {code}."
             )
 
-        if previous and previous.status != PathwayStep.Status.NOT_STARTED:
+        if (
+            previous
+            and previous.status != PathwayStep.Status.NOT_STARTED
+            and not (
+                previous.status == PathwayStep.Status.SKIPPED
+                and step["mandatory_status"] != "OPTIONAL"
+            )
+        ):
             step_status = previous.status
         else:
             step_status = generated_status
@@ -314,6 +321,14 @@ def update_pathway_step_status(
     ):
         raise PermissionDenied(
             "You cannot modify another user's pathway step."
+        )
+
+    if (
+        new_status == PathwayStep.Status.SKIPPED
+        and step.mandatory_status != "OPTIONAL"
+    ):
+        raise ValidationError(
+            "Only optional pathway steps can be skipped."
         )
 
     old_status = step.status

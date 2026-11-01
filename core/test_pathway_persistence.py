@@ -25,7 +25,12 @@ from core.Services.pathway_persistence import (
 )
 
 
-def generated(codes, *, unresolved=False):
+def generated(
+    codes,
+    *,
+    unresolved=False,
+    mandatory_status="REQUIRED",
+):
     """Create sample pathway output for testing."""
 
     return {
@@ -35,7 +40,7 @@ def generated(codes, *, unresolved=False):
                 "service_code": code,
                 "service_name_ar": code,
                 "service_name_en": code,
-                "mandatory_status": "REQUIRED",
+                "mandatory_status": mandatory_status,
                 "official_url": "https://example.org/",
                 "step_type": "SERVICE",
                 "warnings": [],
@@ -213,4 +218,96 @@ class PathwayPersistenceTests(TestCase):
                 version.pathway
             )["progress_percent"],
             50.0,
+        )
+
+    @patch(
+        "core.Services.pathway_persistence.generate_business_pathway"
+    )
+    def test_optional_step_can_be_skipped_without_counting_as_required_progress(
+        self,
+        generator,
+    ):
+        generator.return_value = generated(
+            ["A"], mandatory_status="OPTIONAL"
+        )
+
+        version = save_business_pathway(
+            self.profile,
+            actor=self.user,
+        )
+        step = version.steps.get(service__code="A")
+
+        skipped = update_pathway_step_status(
+            step.pk,
+            PathwayStep.Status.SKIPPED,
+            actor=self.user,
+        )
+
+        self.assertEqual(skipped.status, PathwayStep.Status.SKIPPED)
+        self.assertIsNone(skipped.completed_at)
+        self.assertEqual(
+            get_pathway_summary(version.pathway),
+            {
+                "version": 1,
+                "required_total": 0,
+                "required_done": 0,
+                "progress_percent": 0,
+            },
+        )
+
+    @patch(
+        "core.Services.pathway_persistence.generate_business_pathway"
+    )
+    def test_required_step_cannot_be_skipped(self, generator):
+        generator.return_value = generated(["A"])
+
+        version = save_business_pathway(
+            self.profile,
+            actor=self.user,
+        )
+        step = version.steps.get(service__code="A")
+
+        with self.assertRaises(ValidationError):
+            update_pathway_step_status(
+                step.pk,
+                PathwayStep.Status.SKIPPED,
+                actor=self.user,
+            )
+
+        step.refresh_from_db()
+        self.assertEqual(
+            step.status,
+            PathwayStep.Status.NOT_STARTED,
+        )
+
+    @patch(
+        "core.Services.pathway_persistence.generate_business_pathway"
+    )
+    def test_skipped_optional_step_resets_if_it_becomes_required(
+        self,
+        generator,
+    ):
+        generator.return_value = generated(
+            ["A"], mandatory_status="OPTIONAL"
+        )
+        version_one = save_business_pathway(
+            self.profile,
+            actor=self.user,
+        )
+        step = version_one.steps.get(service__code="A")
+        update_pathway_step_status(
+            step.pk,
+            PathwayStep.Status.SKIPPED,
+            actor=self.user,
+        )
+
+        generator.return_value = generated(["A"])
+        version_two = save_business_pathway(
+            self.profile,
+            actor=self.user,
+        )
+
+        self.assertEqual(
+            version_two.steps.get(service__code="A").status,
+            PathwayStep.Status.NOT_STARTED,
         )
