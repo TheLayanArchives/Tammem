@@ -1,0 +1,232 @@
+{
+  "rules": [
+    {
+      "service_code": "R15",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "PROFILE_FIELD",
+          "field_name": "has_employees",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R14",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q053",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R22",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "PROFILE_FIELD",
+          "field_name": "has_ecommerce",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R10",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ACTIVITY",
+          "operator": "EQUALS",
+          "expected_value": "CAFE_B"
+        }
+      ]
+    },
+    {
+      "service_code": "R11",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ACTIVITY",
+          "operator": "EQUALS",
+          "expected_value": "CAFE_B"
+        }
+      ]
+    },
+    {
+      "service_code": "R16",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "PROFILE_FIELD",
+          "field_name": "has_employees",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R17",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "PROFILE_FIELD",
+          "field_name": "has_employees",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R13",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q103",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R21",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q104",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R24",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q070",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "R27",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q105",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        }
+      ]
+    },
+    {
+      "service_code": "BUILDING_PERMIT",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q037",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q038",
+          "operator": "NOT_EQUALS",
+          "expected_value": "MOBILE_UNIT"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q111",
+          "operator": "EQUALS",
+          "expected_value": "VACANT_LAND_NEW_CONSTRUCTION_REQUIRED"
+        }
+      ]
+    },
+    {
+      "service_code": "BUILDING_RENOVATION",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q037",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q038",
+          "operator": "NOT_EQUALS",
+          "expected_value": "MOBILE_UNIT"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q111",
+          "operator": "EQUALS",
+          "expected_value": "EXISTING_BUILDING_REQUIRING_RENOVATION_OR_FIT_OUT"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q112",
+          "operator": "EQUALS",
+          "expected_value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        }
+      ]
+    },
+    {
+      "service_code": "BUILDING_MODIFICATION",
+      "logic": "ALL",
+      "is_active": true,
+      "conditions": [
+        {
+          "source": "ANSWER",
+          "question_code": "Q037",
+          "operator": "EQUALS",
+          "expected_value": "true"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q038",
+          "operator": "NOT_EQUALS",
+          "expected_value": "MOBILE_UNIT"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q111",
+          "operator": "EQUALS",
+          "expected_value": "EXISTING_BUILDING_REQUIRING_EXPANSION_OR_STRUCTURAL_CHANGES"
+        },
+        {
+          "source": "ANSWER",
+          "question_code": "Q112",
+          "operator": "EQUALS",
+          "expected_value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        }
+      ]
+    }
+  ]
+}

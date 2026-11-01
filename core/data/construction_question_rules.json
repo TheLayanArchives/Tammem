@@ -1,0 +1,563 @@
+{
+  "rules": [
+    {
+      "target": "Q038",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q037",
+          "operator": "EQUALS",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "target": "Q111",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q037",
+          "operator": "EQUALS",
+          "value": "true"
+        },
+        {
+          "question": "Q038",
+          "operator": "NOT_EQUALS",
+          "value": "MOBILE_UNIT"
+        }
+      ]
+    },
+    {
+      "target": "Q112",
+      "logic": "ANY",
+      "conditions": [
+        {
+          "question": "Q111",
+          "operator": "EQUALS",
+          "value": "EXISTING_BUILDING_REQUIRING_RENOVATION_OR_FIT_OUT"
+        },
+        {
+          "question": "Q111",
+          "operator": "EQUALS",
+          "value": "EXISTING_BUILDING_REQUIRING_EXPANSION_OR_STRUCTURAL_CHANGES"
+        }
+      ]
+    },
+    {
+      "target": "Q113",
+      "logic": "ANY",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q111",
+          "operator": "EQUALS",
+          "value": "VACANT_LAND_NEW_CONSTRUCTION_REQUIRED"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "OWNER"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "OWNER"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "INVESTMENT_OTHER_CONTRACT"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "INVESTMENT_OTHER_CONTRACT"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "OTHER"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "OTHER"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "NO"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "NO"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "NOT_SURE"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "NOT_SURE"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "PARTIALLY_COVERED"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "PARTIALLY_COVERED"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "NO"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "NO"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "NOT_SURE"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "NOT_SURE"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "YES_ALL_PLANNED_WORKS_ARE_COVERED"
+        },
+        {
+          "question": "Q118",
+          "operator": "NOT_EQUALS",
+          "value": "YES"
+        }
+      ]
+    },
+    {
+      "target": "Q114",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        },
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "YES_ALL_PLANNED_WORKS_ARE_COVERED"
+        },
+        {
+          "question": "Q118",
+          "operator": "NOT_EQUALS",
+          "value": "YES"
+        }
+      ]
+    },
+    {
+      "target": "Q115",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        }
+      ]
+    },
+    {
+      "target": "Q115",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        }
+      ]
+    },
+    {
+      "target": "Q116",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q115",
+          "operator": "EQUALS",
+          "value": "YES"
+        }
+      ]
+    },
+    {
+      "target": "Q117",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+        }
+      ]
+    },
+    {
+      "target": "Q117",
+      "logic": "ALL",
+      "conditions": [
+        {
+          "question": "Q039",
+          "operator": "EQUALS",
+          "value": "TENANT_LEASED"
+        },
+        {
+          "question": "Q112",
+          "operator": "EQUALS",
+          "value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+        }
+      ]
+    },
+    {
+      "target": "Q118",
+      "logic": "ANY",
+      "conditions": [
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "YES_ALL_PLANNED_WORKS_ARE_COVERED"
+        },
+        {
+          "question": "Q116",
+          "operator": "EQUALS",
+          "value": "PARTIALLY_COVERED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "questions": [
+    {
+      "code": "Q111",
+      "section": "Location",
+      "text_en": "What is the current condition of your business premises?",
+      "text_ar": "ما الحالة الحالية لمقر منشأتك؟",
+      "required": "Yes",
+      "trigger": "If Q037 = Yes and Q038 indicates a fixed premises (not a mobile unit); Q030 describes customer access, not the operating premises.",
+      "stored_as": "PremisesCondition",
+      "reason": "Identifies new construction versus existing premises; it is not a legal determination.",
+      "options_group": "PremisesCondition",
+      "options": [
+        [
+          "VACANT_LAND_NEW_CONSTRUCTION_REQUIRED",
+          "Vacant land — new construction required",
+          "أرض فضاء — تتطلب إنشاءً جديدًا"
+        ],
+        [
+          "EXISTING_BUILDING_READY_FOR_USE",
+          "Existing building ready for use",
+          "مبنى قائم جاهز للاستخدام"
+        ],
+        [
+          "EXISTING_BUILDING_REQUIRING_RENOVATION_OR_FIT_OUT",
+          "Existing building requiring renovation or fit-out",
+          "مبنى قائم يتطلب تجديدًا أو تجهيزًا داخليًا"
+        ],
+        [
+          "EXISTING_BUILDING_REQUIRING_EXPANSION_OR_STRUCTURAL_CHANGES",
+          "Existing building requiring expansion or structural changes",
+          "مبنى قائم يتطلب توسعة أو تغييرات إنشائية"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    },
+    {
+      "code": "Q112",
+      "section": "Location",
+      "text_en": "What type of work are you planning for the existing building?",
+      "text_ar": "ما نوع الأعمال التي تخطط لتنفيذها في المبنى القائم؟",
+      "required": "Yes",
+      "trigger": "If Q111 = existing building requiring renovation/fit-out OR expansion/structural changes",
+      "stored_as": "PlannedBuildingWorks",
+      "reason": "Distinguishes surface maintenance from renovation or structural work that may require a permit.",
+      "options_group": "PlannedBuildingWorks",
+      "options": [
+        [
+          "INTERIOR_DECORATION_AND_FINISHING_ONLY",
+          "Interior decoration and finishing only",
+          "ديكور وتشطيبات داخلية فقط"
+        ],
+        [
+          "SURFACE_REPAIRS_OR_MAINTENANCE",
+          "Surface repairs or maintenance",
+          "إصلاحات سطحية أو صيانة"
+        ],
+        [
+          "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS",
+          "Renovation of existing building elements",
+          "تجديد عناصر المبنى القائمة"
+        ],
+        [
+          "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION",
+          "Structural changes or building expansion",
+          "تغييرات إنشائية أو توسعة المبنى"
+        ],
+        [
+          "NO_ADDITIONAL_WORK",
+          "No additional work",
+          "لا توجد أعمال إضافية"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    },
+    {
+      "code": "Q113",
+      "section": "Location",
+      "text_en": "Does the existing building have a building permit?",
+      "text_ar": "هل توجد رخصة بناء للمبنى القائم؟",
+      "required": "Conditional",
+      "trigger": "If Q112 = renovation of existing building elements OR structural changes/building expansion",
+      "stored_as": "ExistingBuildingPermit",
+      "reason": "Checks existing building documentation; an unknown answer does not mean the premises are unlicensed.",
+      "options_group": "ExistingBuildingPermit",
+      "options": [
+        [
+          "YES",
+          "Yes",
+          "نعم"
+        ],
+        [
+          "NO",
+          "No",
+          "لا"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    },
+    {
+      "code": "Q114",
+      "section": "Location",
+      "text_en": "What is the status of the required construction or renovation permit?",
+      "text_ar": "ما حالة رخصة البناء أو الترميم المطلوبة؟",
+      "required": "Conditional",
+      "trigger": "If permit applicability is determined and no fully verified owner-permit coverage exists",
+      "stored_as": "ConstructionPermitStatus",
+      "reason": "Tracks permit progress separately from service eligibility.",
+      "options_group": "ConstructionPermitStatus",
+      "options": [
+        [
+          "ALREADY_ISSUED",
+          "Already issued",
+          "صدرت بالفعل"
+        ],
+        [
+          "APPLICATION_IN_PROGRESS",
+          "Application in progress",
+          "الطلب قيد الإجراء"
+        ],
+        [
+          "NOT_APPLIED_YET",
+          "Not applied yet",
+          "لم يُقدَّم الطلب بعد"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    },
+    {
+      "code": "Q115",
+      "section": "Location",
+      "text_en": "Does the property owner already have a permit covering the planned renovation or modification work?",
+      "text_ar": "هل لدى مالك العقار رخصة تغطي أعمال التجديد أو التعديل المخطط لها؟",
+      "required": "Conditional",
+      "trigger": "If Q039 = Tenant/leased AND Q112 indicates potentially permit-requiring work",
+      "stored_as": "OwnerHasApplicablePermit",
+      "reason": "Checks for a potentially applicable owner-held permit without treating it as proof of eligibility or coverage.",
+      "options_group": "OwnerHasApplicablePermit",
+      "options": [
+        [
+          "YES",
+          "Yes",
+          "نعم"
+        ],
+        [
+          "NO",
+          "No",
+          "لا"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    },
+    {
+      "code": "Q116",
+      "section": "Location",
+      "text_en": "Are all your planned works covered by the property owner's existing permit?",
+      "text_ar": "هل تغطي رخصة مالك العقار القائمة جميع الأعمال المخطط لها؟",
+      "required": "Conditional",
+      "trigger": "If Q115 = Yes",
+      "stored_as": "OwnerPermitCoverage",
+      "reason": "Distinguishes full coverage from partial or unknown coverage; user-reported and subject to verification.",
+      "options_group": "OwnerPermitCoverage",
+      "options": [
+        [
+          "YES_ALL_PLANNED_WORKS_ARE_COVERED",
+          "Yes, all planned works are covered",
+          "نعم، تغطي جميع الأعمال المخطط لها"
+        ],
+        [
+          "PARTIALLY_COVERED",
+          "Partially covered",
+          "تغطي جزءًا من الأعمال"
+        ],
+        [
+          "NO",
+          "No",
+          "لا"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    },
+    {
+      "code": "Q117",
+      "section": "Location",
+      "text_en": "Do you have authorization from the property owner to carry out the proposed construction or renovation work?",
+      "text_ar": "هل لديك موافقة من مالك العقار على تنفيذ أعمال البناء أو التجديد المقترحة؟",
+      "required": "Conditional",
+      "trigger": "If Q039 = Tenant/leased AND Q112 indicates work potentially requiring an additional permit",
+      "stored_as": "OwnerWorkAuthorization",
+      "reason": "Tracks owner authorization separately from legal permit requirements.",
+      "options_group": "OwnerWorkAuthorization",
+      "options": [
+        [
+          "YES",
+          "Yes",
+          "نعم"
+        ],
+        [
+          "NO",
+          "No",
+          "لا"
+        ],
+        [
+          "IN_PROGRESS",
+          "In progress",
+          "قيد الإجراء"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    },
+    {
+      "code": "Q118",
+      "section": "Location",
+      "text_en": "Has the existing permit been verified as valid and applicable to your planned work?",
+      "text_ar": "هل تم التحقق من صلاحية الرخصة القائمة وانطباقها على الأعمال المخطط لها؟",
+      "required": "Conditional",
+      "trigger": "If Q116 = all planned works covered OR partially covered",
+      "stored_as": "ExistingPermitVerified",
+      "reason": "Records user-reported verification; it does not connect to or verify Balady records.",
+      "options_group": "ExistingPermitVerified",
+      "options": [
+        [
+          "YES",
+          "Yes",
+          "نعم"
+        ],
+        [
+          "NO",
+          "No",
+          "لا"
+        ],
+        [
+          "VERIFICATION_IN_PROGRESS",
+          "Verification in progress",
+          "جارٍ التحقق"
+        ],
+        [
+          "NOT_SURE",
+          "Not sure",
+          "غير متأكد"
+        ]
+      ]
+    }
+  ]
+}

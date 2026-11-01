@@ -1,0 +1,40 @@
+{
+  "legacy_service_code": "R06",
+  "legacy_name_en": "Retired R06 combined building/restoration service",
+  "legacy_name_ar": "خدمة R06 السابقة للبناء والترميم (متوقفة)",
+  "legacy_description_en": "Retired combined catalog entry. Replaced by BUILDING_PERMIT, BUILDING_RENOVATION, and BUILDING_MODIFICATION; retained for historical reference only.",
+  "legacy_description_ar": "سجل موحد متوقف. استُبدل بخدمات رخصة البناء والترميم وتعديل مكونات المبنى، ويُحتفظ به للرجوع التاريخي فقط.",
+  "authority_code": "MOMAH_BALADY",
+  "official_url": "https://balady.gov.sa",
+  "activity_codes": ["CAFE_A", "CAFE_B", "CAFE_C", "CAFE_K"],
+  "activity_mapping_note": "The four cafe activity links are inherited from R06. The construction addition does not further distinguish cafe types.",
+  "services": [
+    {
+      "code": "BUILDING_PERMIT",
+      "name_en": "Building Permit",
+      "name_ar": "إصدار رخصة بناء",
+      "description_en": "Potential permit for new building construction. Confirm applicability and completion status with Balady.",
+      "description_ar": "رخصة محتملة لإنشاء مبنى جديد. يجب التحقق من انطباقها وحالة إصدارها عبر منصة بلدي.",
+      "trigger_question": "Q111",
+      "trigger_value": "VACANT_LAND_NEW_CONSTRUCTION_REQUIRED"
+    },
+    {
+      "code": "BUILDING_RENOVATION",
+      "name_en": "Building Renovation Permit",
+      "name_ar": "إصدار رخصة ترميم بناء",
+      "description_en": "Potential permit for renovation of existing building elements. Cosmetic finishing and surface maintenance do not automatically qualify.",
+      "description_ar": "رخصة محتملة لترميم عناصر المبنى القائم. لا يعني التشطيب التجميلي أو الصيانة السطحية تلقائيًا الحاجة إلى هذه الرخصة.",
+      "trigger_question": "Q112",
+      "trigger_value": "RENOVATION_OF_EXISTING_BUILDING_ELEMENTS"
+    },
+    {
+      "code": "BUILDING_MODIFICATION",
+      "name_en": "Building Components Addition/Modification",
+      "name_ar": "إضافة وتعديل مكونات بناء",
+      "description_en": "Potential service for structural changes or building expansion; confirm the correct permit type with Balady before work starts.",
+      "description_ar": "خدمة محتملة للتغييرات الإنشائية أو توسعة المبنى؛ يجب التحقق من نوع الرخصة المناسب عبر منصة بلدي قبل بدء الأعمال.",
+      "trigger_question": "Q112",
+      "trigger_value": "STRUCTURAL_CHANGES_OR_BUILDING_EXPANSION"
+    }
+  ]
+}
