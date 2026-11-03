@@ -115,6 +115,9 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
+# In-app compliance reminder schedule, in days before an event's due date.
+COMPLIANCE_REMINDER_LEAD_DAYS = [30, 14, 7]
+
 USE_I18N = True
 
 USE_TZ = True
@@ -126,11 +129,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
-# Email
-# https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
-
+# Development email backend: print messages in the terminal, do not send them.
 MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+    "default": {
+        "BACKEND": "django.core.mail.backends.console.EmailBackend",
     },
 }
+DEFAULT_FROM_EMAIL = os.getenv(
+    "DEFAULT_FROM_EMAIL",
+    "TAMMEM reminders <reminders@localhost>",
+)
+EMAIL_VERIFICATION_TOKEN_MAX_AGE = 60 * 60

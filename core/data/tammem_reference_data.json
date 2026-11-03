@@ -1917,7 +1917,7 @@
       "help_text_ar": null,
       "help_text_en": null,
       "is_required": true,
-      "is_active": true,
+      "is_active": false,
       "display_order": 97,
       "scope": "PROFILE",
       "activities": []
@@ -1936,7 +1936,7 @@
       "help_text_ar": null,
       "help_text_en": null,
       "is_required": false,
-      "is_active": true,
+      "is_active": false,
       "display_order": 98,
       "scope": "PROFILE",
       "activities": []
@@ -1955,7 +1955,7 @@
       "help_text_ar": null,
       "help_text_en": null,
       "is_required": true,
-      "is_active": true,
+      "is_active": false,
       "display_order": 99,
       "scope": "PROFILE",
       "activities": []
@@ -1974,7 +1974,7 @@
       "help_text_ar": null,
       "help_text_en": null,
       "is_required": false,
-      "is_active": true,
+      "is_active": false,
       "display_order": 100,
       "scope": "PROFILE",
       "activities": []
@@ -1993,7 +1993,7 @@
       "help_text_ar": null,
       "help_text_en": null,
       "is_required": false,
-      "is_active": true,
+      "is_active": false,
       "display_order": 101,
       "scope": "PROFILE",
       "activities": []
@@ -2012,7 +2012,7 @@
       "help_text_ar": null,
       "help_text_en": null,
       "is_required": false,
-      "is_active": true,
+      "is_active": false,
       "display_order": 102,
       "scope": "PROFILE",
       "activities": []
@@ -3683,7 +3683,8 @@
       "official_url": "https://ejar.sa",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "ALWAYS"
+      "applicability": "ALWAYS",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3715,7 +3716,8 @@
       "official_url": "https://salama.998.gov.sa",
       "is_active": true,
       "mandatory_status": "UNDECIDED",
-      "applicability": "ALWAYS"
+      "applicability": "ALWAYS",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3731,7 +3733,8 @@
       "official_url": "https://balady.gov.sa",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "ALWAYS"
+      "applicability": "ALWAYS",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3747,7 +3750,8 @@
       "official_url": "https://balady.gov.sa",
       "is_active": true,
       "mandatory_status": "CONDITIONAL",
-      "applicability": "ALWAYS"
+      "applicability": "ALWAYS",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3763,7 +3767,8 @@
       "official_url": "https://momah.gov.sa/ar/e-services/tobacco-products-presentation",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "CONDITIONAL"
+      "applicability": "CONDITIONAL",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3795,7 +3800,8 @@
       "official_url": "https://momah.gov.sa/sites/default/files/2025-02/alashtratat%20albldyt%20lkhdmt%20altwsyl%20almnzly.pdf",
       "is_active": true,
       "mandatory_status": "CONDITIONAL",
-      "applicability": "ALWAYS"
+      "applicability": "ALWAYS",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3811,7 +3817,8 @@
       "official_url": "https://momah.gov.sa/sites/default/files/2025-08/ashtratat%20tsryh%20ashghal%20rsyf%20m%60tmd.pdf",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "CONDITIONAL"
+      "applicability": "CONDITIONAL",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3827,7 +3834,8 @@
       "official_url": "https://balady.gov.sa",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "CONDITIONAL"
+      "applicability": "CONDITIONAL",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3859,7 +3867,8 @@
       "official_url": "https://qiwa.sa",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "CONDITIONAL"
+      "applicability": "CONDITIONAL",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -3987,7 +3996,8 @@
       "official_url": "https://naql.sa",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "CONDITIONAL"
+      "applicability": "CONDITIONAL",
+      "expiry_tracking_available": true
     }
   },
   {
@@ -4035,7 +4045,8 @@
       "official_url": "https://gea.gov.sa",
       "is_active": true,
       "mandatory_status": "REQUIRED",
-      "applicability": "CONDITIONAL"
+      "applicability": "CONDITIONAL",
+      "expiry_tracking_available": true
     }
   },
   {

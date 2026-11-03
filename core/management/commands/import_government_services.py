@@ -14,6 +14,9 @@ from core.models import (
     ServiceDependency,
     ServiceRule,
 )
+from core.Services.expiry_tracking import (
+    get_expiry_tracking_service_codes,
+)
 
 
 class Command(BaseCommand):
@@ -140,6 +143,23 @@ class Command(BaseCommand):
                 f"Could not load construction-service retirement metadata: {exc}"
             )
 
+        try:
+            expiry_tracking_codes = get_expiry_tracking_service_codes()
+        except ValueError as exc:
+            raise CommandError(str(exc)) from exc
+
+        construction_codes = {
+            item["code"] for item in construction_data.get("services", [])
+        }
+        unknown_expiry_codes = (
+            expiry_tracking_codes - service_codes - construction_codes
+        )
+        if unknown_expiry_codes:
+            raise CommandError(
+                "Expiry-tracking list contains unknown services: "
+                f"{sorted(unknown_expiry_codes)}"
+            )
+
         self.stdout.write(
             self.style.SUCCESS(
                 f"Validation successful: {len(prepared)} services."
@@ -178,6 +198,9 @@ class Command(BaseCommand):
                     for key, value in service.items()
                     if key != "code"
                 }
+                defaults["expiry_tracking_available"] = (
+                    code in expiry_tracking_codes
+                )
 
                 GovernmentService.objects.update_or_create(
                     code=code,
@@ -193,6 +216,7 @@ class Command(BaseCommand):
                 "description_ar": construction_data["legacy_description_ar"],
                 "official_url": "",
                 "is_active": False,
+                "expiry_tracking_available": False,
             }
             GovernmentService.objects.filter(code=retired_code).update(
                 **retired_defaults

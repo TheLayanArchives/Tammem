@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verify email | TAMMEM</title>
+</head>
+<body>
+  <main>
+    <h1>Verify your TAMMEM email</h1>
+    <p>Confirm that you can access this email address.</p>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="token" value="{{ token }}">
+      <button type="submit">Confirm email</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -19,6 +19,14 @@ class Business(models.Model):
         default="DRAFT",
     )
 
+    email_reminders_enabled = models.BooleanField(
+        default=False,
+        help_text=(
+            "The owner has opted in to renewal reminder emails for this "
+            "business. Email delivery is not enabled yet."
+        ),
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
@@ -521,6 +529,14 @@ class GovernmentService(models.Model):
         default="CONDITIONAL",
     )
 
+    expiry_tracking_available = models.BooleanField(
+        default=False,
+        help_text=(
+            "Show users an optional expiry-date field when they record "
+            "this service's license or permit."
+        ),
+    )
+
     def __str__(self):
         return f"{self.code} - {self.name_en}"
 
@@ -1013,3 +1029,234 @@ class PathwayChangeLog(models.Model):
 
     def __str__(self):
         return f"{self.action} in v{self.version_id}"
+
+
+class LicenseRecord(models.Model):
+    class VerificationStatus(models.TextChoices):
+        USER_PROVIDED_UNVERIFIED = (
+            "USER_PROVIDED_UNVERIFIED",
+            "User-provided / unverified",
+        )
+
+    business = models.ForeignKey(
+        Business,
+        on_delete=models.CASCADE,
+        related_name="license_records",
+    )
+
+    government_service = models.ForeignKey(
+        GovernmentService,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="license_records",
+    )
+
+    pathway_step = models.ForeignKey(
+        PathwayStep,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="license_records",
+    )
+
+    license_type = models.CharField(max_length=120)
+    issuing_authority = models.CharField(max_length=200, blank=True)
+    identifier = models.CharField(max_length=120, blank=True)
+
+    issue_date = models.DateField(null=True, blank=True)
+    expiry_date = models.DateField(null=True, blank=True)
+
+    verification_status = models.CharField(
+        max_length=30,
+        choices=VerificationStatus.choices,
+        default=VerificationStatus.USER_PROVIDED_UNVERIFIED,
+    )
+
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="created_license_records",
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["expiry_date", "id"]
+        indexes = [
+            models.Index(
+                fields=["business", "expiry_date"],
+                name="license_business_expiry_idx",
+            ),
+        ]
+        constraints = [
+            models.CheckConstraint(
+                condition=(
+                    models.Q(issue_date__isnull=True)
+                    | models.Q(expiry_date__isnull=True)
+                    | models.Q(expiry_date__gte=models.F("issue_date"))
+                ),
+                name="license_expiry_not_before_issue",
+            ),
+        ]
+
+    def __str__(self):
+        return f"{self.license_type} for {self.business}"
+
+
+class ComplianceEvent(models.Model):
+    class EventType(models.TextChoices):
+        RENEWAL = "RENEWAL", "Renewal"
+
+    class Status(models.TextChoices):
+        OPEN = "OPEN", "Open"
+        COMPLETED = "COMPLETED", "Completed"
+        CANCELLED = "CANCELLED", "Cancelled"
+
+    business = models.ForeignKey(
+        Business,
+        on_delete=models.CASCADE,
+        related_name="compliance_events",
+    )
+
+    license_record = models.ForeignKey(
+        LicenseRecord,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="compliance_events",
+    )
+
+    event_type = models.CharField(
+        max_length=20,
+        choices=EventType.choices,
+        default=EventType.RENEWAL,
+    )
+
+    due_date = models.DateField()
+
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.OPEN,
+    )
+
+    completed_at = models.DateTimeField(null=True, blank=True)
+    completed_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="completed_compliance_events",
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["due_date", "id"]
+        indexes = [
+            models.Index(
+                fields=["business", "due_date"],
+                name="compliance_business_due_idx",
+            ),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["license_record", "event_type", "due_date"],
+                condition=models.Q(license_record__isnull=False),
+                name="unique_license_compliance_due_event",
+            ),
+        ]
+
+    def __str__(self):
+        return f"{self.event_type} due {self.due_date} for {self.business}"
+
+
+class Reminder(models.Model):
+    class Channel(models.TextChoices):
+        IN_APP = "IN_APP", "In-app"
+        EMAIL = "EMAIL", "Email"
+
+    class DeliveryStatus(models.TextChoices):
+        PENDING = "PENDING", "Pending"
+        AVAILABLE = "AVAILABLE", "Available in app"
+        SENT = "SENT", "Sent"
+        FAILED = "FAILED", "Failed"
+        CANCELLED = "CANCELLED", "Cancelled"
+
+    business = models.ForeignKey(
+        Business,
+        on_delete=models.CASCADE,
+        related_name="reminders",
+    )
+
+    compliance_event = models.ForeignKey(
+        ComplianceEvent,
+        on_delete=models.CASCADE,
+        related_name="reminders",
+    )
+
+    lead_days = models.PositiveSmallIntegerField()
+    channel = models.CharField(
+        max_length=20,
+        choices=Channel.choices,
+        default=Channel.IN_APP,
+    )
+
+    scheduled_for = models.DateField()
+
+    delivery_status = models.CharField(
+        max_length=20,
+        choices=DeliveryStatus.choices,
+        default=DeliveryStatus.PENDING,
+    )
+
+    sent_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["scheduled_for", "id"]
+        indexes = [
+            models.Index(
+                fields=["business", "scheduled_for", "delivery_status"],
+                name="reminder_business_schedule_idx",
+            ),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["compliance_event", "lead_days", "channel"],
+                name="unique_event_reminder_lead_channel",
+            ),
+            models.CheckConstraint(
+                condition=models.Q(lead_days__gt=0),
+                name="reminder_lead_days_positive",
+            ),
+        ]
+
+    def __str__(self):
+        return (
+            f"{self.channel} reminder {self.lead_days} days before "
+            f"event {self.compliance_event_id}"
+        )
+
+
+class UserEmailVerification(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="email_verification",
+    )
+    email = models.EmailField()
+    token_digest = models.CharField(max_length=64, blank=True)
+    expires_at = models.DateTimeField(null=True, blank=True)
+    verified_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Email verification for user {self.user_id}"

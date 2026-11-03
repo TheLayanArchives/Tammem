@@ -16,7 +16,51 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.views import (
+    business_email_reminder_preference,
+    business_compliance_calendar,
+    business_monitoring_summary,
+    business_licenses,
+    confirm_account_email_verification,
+    dashboard_due_reminders,
+    request_account_email_verification,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(
+        'api/dashboard/reminders/',
+        dashboard_due_reminders,
+        name='dashboard-due-reminders',
+    ),
+    path(
+        'api/businesses/<int:business_id>/reminder-preference/',
+        business_email_reminder_preference,
+        name='business-reminder-preference',
+    ),
+    path(
+        'api/businesses/<int:business_id>/monitoring/',
+        business_monitoring_summary,
+        name='business-monitoring-summary',
+    ),
+    path(
+        'api/businesses/<int:business_id>/compliance-events/',
+        business_compliance_calendar,
+        name='business-compliance-calendar',
+    ),
+    path(
+        'api/businesses/<int:business_id>/licenses/',
+        business_licenses,
+        name='business-licenses',
+    ),
+    path(
+        'api/account/email-verification/',
+        request_account_email_verification,
+        name='request-email-verification',
+    ),
+    path(
+        'api/account/email-verification/confirm/',
+        confirm_account_email_verification,
+        name='confirm-email-verification',
+    ),
 ]

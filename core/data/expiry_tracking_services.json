@@ -1,0 +1,19 @@
+{
+  "description": "User-approved services for which users may optionally enter a self-reported expiry date. This does not assert that every issued record is time-limited or officially verified.",
+  "service_codes": [
+    "R05",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R12",
+    "R13",
+    "R14",
+    "R16",
+    "R24",
+    "R27",
+    "BUILDING_PERMIT",
+    "BUILDING_RENOVATION",
+    "BUILDING_MODIFICATION"
+  ]
+}

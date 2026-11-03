@@ -19,6 +19,14 @@ REQUIRED_MODE_MAP = {
     'CONDITIONAL': 'CONDITIONAL',
     'DERIVED/CONDITIONAL': 'DERIVED_CONDITIONAL',
 }
+INACTIVE_QUESTION_CODES = {
+    "Q097",
+    "Q098",
+    "Q099",
+    "Q100",
+    "Q101",
+    "Q102",
+}
 
 
 def option_code(label):
@@ -79,7 +87,7 @@ class Command(BaseCommand):
                     'scope': scope,
                     'is_required': required,
                     'required_mode': REQUIRED_MODE_MAP[raw_required],
-                    'is_active': True,
+                    'is_active': code not in INACTIVE_QUESTION_CODES,
                     'display_order': line - 1,
                 }
                 question = Question.objects.filter(code=code).first()

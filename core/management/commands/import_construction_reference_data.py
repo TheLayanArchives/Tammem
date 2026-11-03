@@ -13,6 +13,9 @@ from core.models import (
     ServiceDependency,
     ServiceRule,
 )
+from core.Services.expiry_tracking import (
+    get_expiry_tracking_service_codes,
+)
 
 
 class Command(BaseCommand):
@@ -54,6 +57,18 @@ class Command(BaseCommand):
             raise CommandError("Expected three uniquely coded construction services.")
         construction_codes = {item["code"] for item in prepared}
 
+        try:
+            expiry_tracking_codes = get_expiry_tracking_service_codes()
+        except ValueError as exc:
+            raise CommandError(str(exc)) from exc
+
+        missing_expiry_flags = construction_codes - expiry_tracking_codes
+        if missing_expiry_flags:
+            raise CommandError(
+                "Construction services missing approved expiry tracking "
+                f"flags: {sorted(missing_expiry_flags)}"
+            )
+
         self.stdout.write(
             f"Validated {len(prepared)} services and {len(activities)} activity links."
         )
@@ -77,6 +92,9 @@ class Command(BaseCommand):
                         # Triggering a potential service is not a legal determination
                         # that the applicant must obtain it.
                         "mandatory_status": "UNDECIDED",
+                        "expiry_tracking_available": (
+                            item["code"] in expiry_tracking_codes
+                        ),
                     },
                 )
                 for activity in activities.values():
